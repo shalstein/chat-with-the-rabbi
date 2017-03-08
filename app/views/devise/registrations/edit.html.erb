@@ -4,6 +4,39 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </div>
+
+  <div class="check_box">
+    <%= f.label :married %><br />
+    <%= f.check_box :married %>
+
+  </div>
+
+  <div class="check_box">
+    <%= f.label :children %> <br>
+    <%= f.check_box :children %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :bothersome_level %> <br>
+    <%= f.select("bothersome_level", options_for_select([['1',1], ['2',2], ['3',3], ['4',4], ['5',5]] ), { include_blank: true })  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :wallet, "Amount of cash in wallet" %> <br>
+    <%= f.text_field :wallet %>
+  </div>
+
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
