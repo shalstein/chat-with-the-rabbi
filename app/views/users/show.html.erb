@@ -1,0 +1,11 @@
+
+<h1> Welcome <%= @user.name %>!</h1>
+
+
+<div class="link">
+  <%= link_to "Schedule an appointment with the Rabbi", new_user_appointment_path(@user) %>
+</div> <br>
+
+<div class="link">
+  <%= link_to "Edit you profile", edit_user_registration_path %>
+</div>
