@@ -1,0 +1,66 @@
+<h2>Schedule an appointment</h2>
+<div class="form">
+
+<%= form_for [:user, @appointment]  do |f| %>
+
+<div class="">
+  <label for="rabbi_id">With Rabbi:</label>
+  <%= f.collection_select(:rabbi_id, Rabbi.all ,:id, :name, {:prompt => 'Select a Rabbi'} ) %>
+</div><br>
+
+<div class="">
+  <label for="service_id">For what purpose?</label>
+  <%= f.collection_select(:service_id, Service.all ,:id, :name, {:prompt => 'Select a purpose'} ) %><br><br>
+</div>
+
+<div class="">
+  <%= f.label :time %>
+  <%= f.time_field :time %>
+</div><br>
+
+<div class="">
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+</div><br>
+
+<div class="action">
+  <%=f.submit %>
+</div>
+
+<p>Can't find your Rabbi? <br> Add one here:</p>
+  <%= f.fields_for :rabbi, @rabbi do |r| %>
+
+    <div class="field">
+      <%= r.label :name %>
+      <%= r.text_field :name %>
+
+    </div><br>
+
+    <div class="field">
+      <%= r.label :age %>
+      <%= r.number_field(:age, in: 1..100) %>
+    </div><br>
+
+    <div class="">
+      <%= r.label :years_of_experience %>
+      <%= r.number_field(:years_of_experience, in: 0..50) %>
+    </div> <br>
+
+    <div class="field">
+      <%= r.label :branch_of_judaism %>
+      <%= r.text_field :branch_of_judaism %>
+    </div><br>
+
+    <div class="field">
+      <%= r.label :charisma_level %>
+      <%= r.number_field(:charisma_level, in: 1..5) %>
+    </div><br>
+
+    <div class="action">
+        <%= r.submit "Create Appointment and Add Rabbi" %>
+    </div>
+
+  <% end %>
+
+<%end %>
+</div>

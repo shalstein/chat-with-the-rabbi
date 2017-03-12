@@ -10,7 +10,7 @@
 
   <div class="field">
     <%= f.label :age %><br />
-    <%= f.text_field :age %>
+    <%= f.number_field(:age, in: 1..100) %>
   </div>
 
   <div class="check_box">
@@ -27,6 +27,7 @@
 
   <div class="field">
     <%= f.label :bothersome_level %> <br>
+    <%= f.number_field(:bothersome_level, in: 1..5) %>
     <%= f.select("bothersome_level", options_for_select([['1',1], ['2',2], ['3',3], ['4',4], ['5',5]] ), { include_blank: true })  %>
   </div>
 
