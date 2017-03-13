@@ -1,1 +1,9 @@
-show appointment
+<h2>Appointment Summary</h2>
+
+<p>Rabbi: <%= @appointment.rabbi.name %></p>
+<p>Time: <%= @appointment.time %></p>
+<p>Date: <%= @appointment.date %></p>
+<p>Reason: <%= @appointment.service.name %></p>
+<p>For: <%= @appointment.user.name %></p>
+
+<%= link_to "Edit Appointment", edit_user_appointment_path(@appointment.user, @appointment) %>
