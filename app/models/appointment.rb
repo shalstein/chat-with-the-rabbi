@@ -4,10 +4,7 @@ class Appointment < ApplicationRecord
   belongs_to :service
 
   def rabbi_attributes=(attributes)
-    attributes.each do |key, value|
-      binding.pry
-      Rabbi.find_or_create_by(name: key[:name])
-    end
-
+    self.rabbi = Rabbi.find_or_create_by(attributes)
   end
+
 end
