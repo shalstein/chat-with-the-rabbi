@@ -4,7 +4,9 @@ class Appointment < ApplicationRecord
   belongs_to :service
 
   def rabbi_attributes=(attributes)
-    self.rabbi = Rabbi.find_or_create_by(attributes)
+    unless attributes.values.any? { |value| value.blank? }
+      rabbi = Rabbi.find_or_create_by(attributes)
+    end
   end
 
 end

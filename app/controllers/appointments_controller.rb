@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @appointment = User.find(params[:user_id]).appointments.build
@@ -6,10 +7,10 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(id: params[:user_id])
-    @user.appointments.build(appointment_attributes)
-    @user.save
-    redirect_to user_appointment_path(@user, @user.appointments.last )
+    user = User.find_by(id: params[:user_id])
+    appointment = user.appointments.build(appointment_attributes)
+    user.save
+    redirect_to user_appointment_path(user, appointment )
   end
 
   def show
