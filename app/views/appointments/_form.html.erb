@@ -28,7 +28,7 @@
 </div>
 
 <p>Can't find your Rabbi? <br> Add one here:</p>
-  <%= f.fields_for :rabbi do |r| %>
+  <%= f.fields_for :rabbi, @rabbi do |r| %>
 
     <div class="field">
       <%= r.label :name %>
