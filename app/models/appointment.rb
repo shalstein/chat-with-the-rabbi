@@ -5,7 +5,7 @@ class Appointment < ApplicationRecord
 
   def rabbi_attributes=(attributes)
     unless attributes.values.any? { |value| value.blank? }
-      rabbi = Rabbi.find_or_create_by(attributes)
+      self.rabbi = Rabbi.find_or_create_by(attributes)
     end
   end
 
