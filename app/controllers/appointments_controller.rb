@@ -7,9 +7,9 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @appointment = User.find(params[:user_id]).appointments.build
+    @user = requested_user
+    @appointment = @user.appointments.build
     @rabbi = @appointment.build_rabbi
-
   end
 
   def create
@@ -29,7 +29,8 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
-    @appointment = requested_appointment
+    @user = requested_user
+    @appointment = @user.appointments.find(params[:id])
   end
 
   def update
