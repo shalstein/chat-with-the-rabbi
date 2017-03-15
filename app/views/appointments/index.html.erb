@@ -1,0 +1,6 @@
+<h2><%=@user.name%>'s Future Appointments</h2>
+<% @appointments.each do |appointment| %>
+<div class="appointment">
+  <p> <%= link_to "Date: #{appointment.date}, Time: #{appointment.time}, Service: #{appointment.service.name}", user_appointment_path(appointment.user, appointment)%></p>
+</div>
+<% end %>
