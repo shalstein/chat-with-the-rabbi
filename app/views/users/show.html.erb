@@ -1,9 +1,13 @@
 <h1> Welcome <%= @user.name %>!</h1>
 
+<p>You have <%= number_to_currency(@user.wallet)%> in your wallet</p>
+<p>Your Bothersome Level is: <%= @user.bothersome_level %></p>
+<% if @user.rabbis.any? %>
+  <p>You have <%=pluralize(@user.rabbis.count, 'Rabbi') %>.</p>
+<% else %>
+  <p>You don't have any Rabbi's yet. <%= link_to "Make an appointment",  new_user_appointment_path(@user)%> to get one.</p>
+<% end %>
 
-<div class="link">
-  <%= link_to "Schedule an appointment with the Rabbi", new_user_appointment_path(@user) %>
-</div> <br>
 
 <div class="link">
   <%= link_to "Edit you profile", edit_user_registration_path %>
