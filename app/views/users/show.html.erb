@@ -2,6 +2,7 @@
 
 <p>You have <%= number_to_currency(@user.wallet)%> in your wallet</p>
 <p>Your Bothersome Level is: <%= @user.bothersome_level %></p>
+
 <% if @user.rabbis.any? %>
   <p>You have <%=pluralize(@user.rabbis.count, 'Rabbi') %>.</p>
 <% else %>
