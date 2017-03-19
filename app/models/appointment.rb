@@ -4,7 +4,6 @@ class Appointment < ApplicationRecord
   belongs_to :service
 
   scope :future_appointments, -> (user_id) {where("user_id = ? AND starttime > ?",user_id, Time.now )}
-  scope :past_appointments, -> (user_id) {where("user_id = ? AND date < ?",user_id, Date.today )} #remove
 
 
   def rabbi_attributes=(attributes)

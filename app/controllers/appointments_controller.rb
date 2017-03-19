@@ -14,12 +14,12 @@ class AppointmentsController < ApplicationController
 
   def create
     user = requested_user
-    if params.require(:appointment).permit(:rabbi_id).blank?
+    if params[:appointment][:rabbi_id].blank?
       appointment = user.appointments.build(appointment_and_rabbi_attributes)
     else
       appointment = user.appointments.build(appointment_attributes)
     end
-    user.save
+    appointment.save
     redirect_to user_appointment_path(user, appointment)
   end
 
