@@ -13,14 +13,19 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    user = requested_user
+    @user = requested_user
     if params[:appointment][:rabbi_id].blank?
-      appointment = user.appointments.build(appointment_and_rabbi_attributes)
+      @appointment = @user.appointments.build(appointment_and_rabbi_attributes)
     else
-      appointment = user.appointments.build(appointment_attributes)
+      @appointment = @user.appointments.build(appointment_attributes)
     end
-    appointment.save
-    redirect_to user_appointment_path(user, appointment)
+     if @appointment.save
+       redirect_to user_appointment_path(@user, @appointment)
+     else
+       @rabbi = Rabbi.new
+       render 'new'
+     end
+
   end
 
   def show
@@ -51,7 +56,7 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_and_rabbi_attributes
-    params.require(:appointment).permit(:rabbi_id, :service_id, :starttime, :time, :date, rabbi_attributes: [:name, :age, :years_of_experience, :branch_of_judaism, :charisma_level])
+    params.require(:appointment).permit(:service_id, :starttime, :time, :date, rabbi_attributes: [:name, :age, :years_of_experience, :branch_of_judaism, :charisma_level])
   end
 
   def requested_appointment
