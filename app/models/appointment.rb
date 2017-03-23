@@ -3,9 +3,9 @@ class Appointment < ApplicationRecord
   belongs_to :rabbi #, optional: true
   belongs_to :service#, optional: true
 
-  validates :starttime, :service,   presence: true
+  validates :starttime, :service, presence: true
 
-  accepts_nested_attributes_for :rabbi, :service
+  accepts_nested_attributes_for :rabbi
 
 
   scope :future_appointments, -> (user_id) {where("user_id = ? AND starttime > ?",user_id, Time.now )}

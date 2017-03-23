@@ -7,8 +7,8 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @user = requested_user
-    @appointment = @user.appointments.build
+    @user ||= requested_user
+    @appointment ||= @user.appointments.build
     @rabbi = @appointment.build_rabbi
   end
 
@@ -39,7 +39,7 @@ class AppointmentsController < ApplicationController
 
   def update
     appointment = requested_appointment
-    if params.require(:appointment).permit(:rabbi_id).blank?
+    if params[:appointment][:rabbi_id].blank?
       appointment.update(appointment_and_rabbi_attributes)
     else
       appointment.update(appointment_attributes)
@@ -55,7 +55,7 @@ class AppointmentsController < ApplicationController
   end
 
   def appointment_and_rabbi_attributes
-    params.require(:appointment).permit(:service_id, :starttime, :time, :date, rabbi_attributes: [:name, :age, :years_of_experience, :branch_of_judaism, :charisma_level])
+    params.require(:appointment).permit(:rabbi_id, :service_id, :starttime, :time, :date, rabbi_attributes: [:name, :age, :years_of_experience, :branch_of_judaism, :charisma_level])
   end
 
   def requested_appointment

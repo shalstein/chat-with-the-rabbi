@@ -26,7 +26,6 @@
     <div class="field">
       <%= r.label :name %>
       <%= r.text_field :name, value: "" %>
-
     </div><br>
 
     <div class="field">
@@ -51,8 +50,6 @@
   <% end %>
 </fieldset><br>
 
-
-</div>
 <div class="field<%='_with_errors' if @appointment.errors[:service].any?%>">
   <label for="service_id">Purpose?</label>
   <%= f.collection_select(:service_id, Service.all ,:id, :name, {:prompt => 'Select a purpose'} ) %><br><br>
