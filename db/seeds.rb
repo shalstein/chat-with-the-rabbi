@@ -11,6 +11,11 @@ ser1 = Service.create(name: "Marrige Cermony", fee: 675)
 
 ser2 = Service.create(name: "Counsouling session", fee: 955)
 
+ser2 = Service.create(name: "Buisness Advice", fee: 877)
+
+ser2 = Service.create(name: "Divorce", fee: 545)
+
+
 
 Appointment.create(rabbi_id: rab2.id, user_id: user2.id, service_id: ser1.id, starttime: "2016-09-03 04:30")
 
