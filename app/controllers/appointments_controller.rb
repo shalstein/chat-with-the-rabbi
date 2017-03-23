@@ -22,7 +22,6 @@ class AppointmentsController < ApplicationController
      if @appointment.save
        redirect_to user_appointment_path(@user, @appointment)
      else
-       @rabbi = Rabbi.new
        render 'new'
      end
 

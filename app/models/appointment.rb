@@ -1,10 +1,9 @@
 class Appointment < ApplicationRecord
   belongs_to :user
   belongs_to :rabbi #, optional: true
-  belongs_to :service
+  belongs_to :service, optional: true
 
-  validates :starttime, presence: true
-  #validates_associated :rabbi
+  validates :starttime, :service,   presence: true
 
   accepts_nested_attributes_for :rabbi
 

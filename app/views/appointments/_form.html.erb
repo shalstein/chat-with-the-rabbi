@@ -16,12 +16,12 @@
 
 <div class="field">
   <label for="rabbi_id">With Rabbi:</label>
-  <%= f.collection_select(:rabbi_id, Rabbi.all ,:id, :name, {:prompt => 'Select a Rabbi', include_blank:} ) %>
+  <%= f.collection_select(:rabbi_id, Rabbi.all ,:id, :name, {:prompt => 'Select a Rabbi', include_blank: true} ) %>
 </div>
 <p>Can't find your Rabbi? <br> Add one here:</p>
 <fieldset>
   <legend>New Rabbi</legend>
-  <%= f.fields_for :rabbi, @rabbi do |r| %>
+  <%= f.fields_for :rabbi do |r| %>
 
     <div class="field">
       <%= r.label :name %>
