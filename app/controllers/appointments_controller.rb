@@ -20,7 +20,7 @@ class AppointmentsController < ApplicationController
        redirect_to user_appointment_path(@user, @appointment)
     else
       #@rabbi ||=  @appointment.build_rabbi if params[:appointment][:rabbi_attributes].values.all? { |value| value.blank? }
-      @rabbi = @appointment.rabbi || @appointment.build_rabbi
+      @appointment.rabbi ||= @appointment.build_rabbi
       #raise @rabbi.inspect
       render :new
     end
@@ -40,14 +40,11 @@ class AppointmentsController < ApplicationController
   def update
     @user = requested_user
     @appointment = requested_appointment
-    if params[:appointment][:rabbi_attributes][:name].blank?
-      @appointment.update(appointment_attributes)
-    else
-      @appointment.update(appointment_and_rabbi_attributes)
-    end
-    if @appointment.valid?
+
+    if @appointment.update(appointment_and_rabbi_attributes)
       redirect_to user_appointment_path(@user, @appointment)
     else
+      @appointment.rabbi ||= @appointment.build_rabbi
       render "edit"
     end
 
