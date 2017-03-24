@@ -3,7 +3,7 @@ class Appointment < ApplicationRecord
   belongs_to :rabbi #, optional: true
   belongs_to :service#, optional: true
 
-  validates :starttime, :service, presence: true
+  validates :starttime, :service, :rabbi, presence: true
 
   accepts_nested_attributes_for :rabbi
 
@@ -12,11 +12,9 @@ class Appointment < ApplicationRecord
 
 
   def rabbi_attributes=(attributes)
-    #unless attributes.values.any? { |value| value.blank? }
-
+    unless attributes.values.all? { |value| value.blank? }
       self.rabbi = Rabbi.find_or_create_by(attributes)
-
-    #end
+    end
   end
 
 end

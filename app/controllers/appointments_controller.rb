@@ -7,23 +7,23 @@ class AppointmentsController < ApplicationController
   end
 
   def new
-    @user ||= requested_user
-    @appointment ||= @user.appointments.build
+    @user = requested_user
+    @appointment = @user.appointments.build
     @rabbi = @appointment.build_rabbi
   end
 
   def create
     @user = requested_user
-    if params[:appointment][:rabbi_id].blank?
-      @appointment = @user.appointments.build(appointment_and_rabbi_attributes)
-    else
-      @appointment = @user.appointments.build(appointment_attributes)
-    end
-     if @appointment.save
+    @appointment = @user.appointments.build(appointment_and_rabbi_attributes)
+
+    if @appointment.save
        redirect_to user_appointment_path(@user, @appointment)
-     else
-       render 'new'
-     end
+    else
+      #@rabbi ||=  @appointment.build_rabbi if params[:appointment][:rabbi_attributes].values.all? { |value| value.blank? }
+      @rabbi = @appointment.rabbi || @appointment.build_rabbi
+      #raise @rabbi.inspect
+      render :new
+    end
 
   end
 
@@ -38,13 +38,19 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    appointment = requested_appointment
-    if params[:appointment][:rabbi_id].blank?
-      appointment.update(appointment_and_rabbi_attributes)
+    @user = requested_user
+    @appointment = requested_appointment
+    if params[:appointment][:rabbi_attributes][:name].blank?
+      @appointment.update(appointment_attributes)
     else
-      appointment.update(appointment_attributes)
+      @appointment.update(appointment_and_rabbi_attributes)
     end
-    redirect_to user_appointment_path(appointment.user, appointment)
+    if @appointment.valid?
+      redirect_to user_appointment_path(@user, @appointment)
+    else
+      render "edit"
+    end
+
   end
 
 
@@ -65,5 +71,6 @@ class AppointmentsController < ApplicationController
   def requested_user
     User.find_by(id: params[:user_id])
   end
+
 
 end
