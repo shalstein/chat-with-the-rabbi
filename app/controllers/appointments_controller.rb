@@ -19,9 +19,7 @@ class AppointmentsController < ApplicationController
     if @appointment.save
        redirect_to user_appointment_path(@user, @appointment)
     else
-      #@rabbi ||=  @appointment.build_rabbi if params[:appointment][:rabbi_attributes].values.all? { |value| value.blank? }
       @appointment.rabbi ||= @appointment.build_rabbi
-      #raise @rabbi.inspect
       render :new
     end
 

@@ -1,2 +1,78 @@
 <h2>Edit you Appointment</h2>
-<%= render 'form' %>
+<div class="form">
+
+<% if @appointment.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+    <ul>
+    <% @appointment.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for [@user, @appointment]  do |f| %>
+
+<div class="field<%='_with_errors' if @appointment.errors[:rabbi].any?%>">
+  <label for="rabbi_id">With Rabbi:</label>
+  <%= f.collection_select(:rabbi_id, Rabbi.all ,:id, :name, {:prompt => 'Select a Rabbi'} ) %>
+</div>
+<p>Can't find your Rabbi? <br> Add one here:</p>
+<fieldset>
+  <legend>New Rabbi</legend>
+  <%= f.fields_for :rabbi, @rabbi do |r| %>
+
+    <div class="field">
+      <%= r.label :name %>
+      <%= r.text_field :name, value: "" %>
+    </div><br>
+
+    <div class="field">
+      <%= r.label :age %>
+      <%= r.number_field(:age, in: 1..100, value: "") %>
+    </div><br>
+
+    <div class="field">
+      <%= r.label :years_of_experience %>
+      <%= r.number_field(:years_of_experience, in: 0..50, value: "")  %>
+    </div> <br>
+
+    <div class="field">
+      <%= r.label :branch_of_judaism %>
+      <%= r.text_field :branch_of_judaism, value: ""%>
+    </div><br>
+
+    <div class="field">
+      <%= r.label :charisma_level %>
+      <%= r.select(:charisma_level, options_for_select([['1',1], ['2',2], ['3',3], ['4',4], ['5',5]] ), { include_blank: true, value: "" })  %>
+    </div>
+  <% end %>
+</fieldset><br>
+
+<div class="field<%='_with_errors' if @appointment.errors[:service].any?%>">
+  <label for="service_id">Purpose?</label>
+  <%= f.collection_select(:service_id, Service.all ,:id, :name, {:prompt => 'Select a purpose'} ) %><br><br>
+</div>
+
+
+
+<div class="field">
+  <%= f.label :starttime, "Date:"  %>
+  <%= f.date_select :starttime %>
+</div><br>
+
+<div class="field">
+  <%= f.label :starttime, "Time:"  %>
+  <%= f.time_select :starttime, ampm: true , :ignore_date => true, minute_step: 15 %>
+</div><br>
+
+
+<div class="action">
+  <%=f.submit %>
+</div>
+
+
+
+<%end %>
+</div>
