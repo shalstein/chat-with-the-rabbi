@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :rabbis, through: :appointments
   has_many :appointments
+  enum role: [:normal, :admin]
 end

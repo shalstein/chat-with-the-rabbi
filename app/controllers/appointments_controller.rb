@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_user!
 
   def index
@@ -14,7 +15,7 @@ class AppointmentsController < ApplicationController
 
   def create
     @user = requested_user
-    @appointment = @user.appointments.build(appointment_and_rabbi_attributes)
+    @appointment = @user.appointments.build(appointment_params)
 
     if @appointment.save
        redirect_to user_appointment_path(@user, @appointment)
@@ -39,7 +40,7 @@ class AppointmentsController < ApplicationController
     @user = requested_user
     @appointment = requested_appointment
 
-    if @appointment.update(appointment_and_rabbi_attributes)
+    if @appointment.update(appointment_params)
       redirect_to user_appointment_path(@user, @appointment)
     else
       @appointment.rabbi ||= @appointment.build_rabbi
@@ -51,11 +52,9 @@ class AppointmentsController < ApplicationController
 
   private
 
-  def appointment_attributes
-    params.require(:appointment).permit(:rabbi_id, :service_id, :time, :date, :starttime)
-  end
 
-  def appointment_and_rabbi_attributes
+
+  def appointment_params
     params.require(:appointment).permit(:rabbi_id, :service_id, :starttime, :time, :date, rabbi_attributes: [:name, :age, :years_of_experience, :branch_of_judaism, :charisma_level])
   end
 
