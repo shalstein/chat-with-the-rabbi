@@ -24,10 +24,9 @@
     <%= f.check_box :children %>
   </div>
 
-
   <div class="field">
     <%= f.label :bothersome_level %> <br>
-    <%= f.select("bothersome_level", options_for_select([['1',1], ['2',2], ['3',3], ['4',4], ['5',5]] ), { include_blank: true })  %>
+    <%= f.select("bothersome_level", options_for_select([['1',1], ['2',2], ['3',3], ['4',4], ['5',5]], f.object.bothersome_level ))  %>
   </div>
 
   <div class="field">

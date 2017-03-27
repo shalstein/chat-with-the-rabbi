@@ -4,10 +4,10 @@ class Ability
   def initialize(user)
     if user.normal?
       can [:read, :create, :update], Appointment, user_id: user.id
-      can :read, User, id: user.id 
+      can :read, User, id: user.id
 
     elsif user.admin?
-      can :manage, Appointment
+      can :manage, :all
     end
     # Define abilities for the passed in user here. For example:
     #

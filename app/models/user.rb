@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :rabbis, through: :appointments
   has_many :appointments
   enum role: [:normal, :admin]
+  validates :name, :age,  :bothersome_level, :wallet, presence: true
 end

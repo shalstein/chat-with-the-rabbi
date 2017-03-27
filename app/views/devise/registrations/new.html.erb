@@ -27,7 +27,7 @@
 
   <div class="field">
     <%= f.label :bothersome_level %> <br>
-    <%= f.select("bothersome_level", options_for_select([['1',1], ['2',2], ['3',3], ['4',4], ['5',5]] ), { include_blank: true })  %>
+    <%= f.select("bothersome_level", options_for_select([['1',1], ['2',2], ['3',3], ['4',4], ['5',5]], f.object.bothersome_level), {prompt: "Select"})  %>
   </div>
 
   <div class="field">
@@ -55,7 +55,12 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+  </div><br>
+
+  <div class="check_box">
+    <%= f.label :role, "Admin?" %>
+    <%= f.check_box :role, {}, "admin", "normal"  %>
+  </div><br>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
