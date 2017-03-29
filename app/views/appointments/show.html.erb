@@ -7,3 +7,5 @@
 <p>For: <%= @user.name %></p>
 
 <%= link_to "Edit Appointment", edit_user_appointment_path(@appointment.user, @appointment) %>
+<br><br>
+<%= button_to "Cancel Appointment" , {action: "destroy"}, {method: :delete}   %>

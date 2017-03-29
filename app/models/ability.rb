@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     if user.normal?
-      can [:read, :create, :update], Appointment, user_id: user.id
+      can [:read, :create, :update, :destroy], Appointment, user_id: user.id
       can :read, User, id: user.id
 
     elsif user.admin?
