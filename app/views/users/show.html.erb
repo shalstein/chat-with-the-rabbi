@@ -1,8 +1,11 @@
 <h1> Welcome <%= @user.name %>!</h1>
 
-<p>You have <%= number_to_currency(@user.wallet)%> in your wallet</p>
-<p>Your Bothersome Level is: <%= @user.bothersome_level %></p>
 
+<% if @user.wallet %>
+  <p>You have <%= number_to_currency(@user.wallet)%> in your wallet</p>
+<% else %>
+  <p>You are broke! <%= link_to 'Edit Your Profile', edit_user_registration_path %> to add more money. </p>
+  <% end %>
 <% if @user.rabbis.any? %>
   <p>You have <%=pluralize(@user.rabbis.count, 'Rabbi') %>.</p>
 <% else %>
