@@ -14,5 +14,5 @@
 
 
 <div class="link">
-  <%= link_to "Edit you profile", edit_user_registration_path %>
+  <%= link_to "Edit you profile", edit_user_registration_path if !current_user.provider %>
 </div>
