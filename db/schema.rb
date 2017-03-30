@@ -44,25 +44,22 @@ ActiveRecord::Schema.define(version: 20170327142927) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "name"
-    t.integer  "age"
-    t.boolean  "married",                default: false
-    t.boolean  "children",               default: false
     t.string   "occupation"
-    t.date     "birthday"
-    t.integer  "bothersome_level"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.date     "dob"
+    t.integer  "bothersome_level",       default: 0
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "wallet"
     t.integer  "role",                   default: 0
     t.string   "provider"

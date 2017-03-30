@@ -1,13 +1,13 @@
-rab1 = Rabbi.create(name: "Bill Toms", age: 50, years_of_experience: 10, branch_of_judaism: "reform", temple: "Temple rodef mammon", charisma_level: 10, city: "nowherevile, AK")
+rab1 = Rabbi.create(name: "Bill Toms", years_of_experience: 10, branch_of_judaism: "reform", temple: "Temple rodef mammon", charisma_level: 10, city: "nowherevile, AK")
 
 
-rab2 = Rabbi.create(name: "roger desnenberg", age: 50, years_of_experience: 2, branch_of_judaism: "reform", temple: "Temple sholom", charisma_level: 2, city: "los angeles, CA")
+rab2 = Rabbi.create(name: "roger desnenberg", years_of_experience: 2, branch_of_judaism: "reform", temple: "Temple sholom", charisma_level: 2, city: "los angeles, CA")
 
-user1 = User.create(name: "tyler albertoson", email: "tyeler@example.com", age: 42, married: true, children: true, occupation: "farmer", birthday: "1977-03-01", bothersome_level: 9, password: "password")
+user1 = User.create(name: "tyler albertoson", email: "tyeler@example.com", occupation: "farmer", dob: "1977-03-01", bothersome_level: 9, password: "password")
 
-user4 = User.create(name: "Rachel Toads", email: "rachel@example.com", age: 22, married: false, children: false, occupation: "Bartender", birthday: "1999-03-01", bothersome_level: 2, password: "password")
+user4 = User.create(name: "Rachel Toads", email: "rachel@example.com", occupation: "Bartender", dob: "1999-03-01", bothersome_level: 2, password: "password")
 
-user2 = User.create(name: "joe Toads", email: "joe@example.com", age: 22, married: false, children: false, occupation: "Bartender", birthday: "1999-03-01", bothersome_level: 2, password: "password")
+user2 = User.create(name: "joe Toads", email: "joe@example.com", occupation: "Bartender", dob: "1999-03-01", bothersome_level: 2, password: "password")
 
 ser1 = Service.create(name: "Marrige Cermony", fee: 675)
 

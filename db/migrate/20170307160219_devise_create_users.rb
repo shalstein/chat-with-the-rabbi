@@ -31,12 +31,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       # t.datetime :locked_at
 
       t.string :name
-      t.integer :age
-      t.boolean :married, default: false
-      t.boolean :children, default: false
       t.string :occupation
-      t.date :birthday
-      t.integer :bothersome_level
+      t.date :dob
+      t.integer :bothersome_level, default: 0
 
       t.timestamps null: false
     end
