@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20170327142927) do
     t.integer  "bothersome_level",       default: 0
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "wallet"
+    t.integer  "wallet",                 default: 0
     t.integer  "role",                   default: 0
     t.string   "provider"
     t.string   "uid"

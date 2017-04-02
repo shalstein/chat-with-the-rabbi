@@ -1,10 +1,10 @@
 <h1> Welcome <%= @user.name %>!</h1>
 
 
-<% if @user.wallet %>
+<% if @user.wallet > 0 %>
   <p>You have <%= number_to_currency(@user.wallet)%> in your wallet</p>
 <% else %>
-  <p>You are broke! <%= link_to 'Add more money to your account', "#{}" %> to add more money. </p>
+  <p>You are broke! <%= link_to 'Add  money to your account', edit_user_money_path(@user) %> to add more money. </p>
   <% end %>
 <% if @user.rabbis.any? %>
   <p>You have <%=pluralize(@user.rabbis.count, 'Rabbi') %>.</p>
@@ -15,4 +15,8 @@
 
 <div class="link">
   <%= link_to "Edit you profile", edit_user_registration_path if !current_user.provider %>
+</div>
+
+<div class="link">
+  <%= link_to "Add more money to your account", edit_user_money_path(@user) %>
 </div>

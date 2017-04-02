@@ -7,7 +7,9 @@ class User < ApplicationRecord
   has_many :rabbis, through: :appointments
   has_many :appointments
   enum role: [:normal, :admin]
-  #validates :name, :age,  :bothersome_level, :wallet, presence: true
+
+  validates :name, :wallet, presence: true
+  validates :wallet, numericality: { only_integer: true, greater_than: 0 }
 
   def self.from_omniauth(auth)
     where(email: auth.info.email.first).first_or_create do |user|
