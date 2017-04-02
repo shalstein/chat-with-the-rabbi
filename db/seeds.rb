@@ -1,7 +1,7 @@
-rab1 = Rabbi.create(name: "Bill Toms", years_of_experience: 10, branch_of_judaism: "reform", temple: "Temple rodef mammon", charisma_level: 10, city: "nowherevile, AK")
+rab1 = Rabbi.create(name: "Bill Toms", branch_of_judaism: "reform", temple: "Temple rodef mammon", charisma_level: 10, city: "nowherevile, AK")
 
 
-rab2 = Rabbi.create(name: "roger desnenberg", years_of_experience: 2, branch_of_judaism: "reform", temple: "Temple sholom", charisma_level: 2, city: "los angeles, CA")
+rab2 = Rabbi.create(name: "roger desnenberg", branch_of_judaism: "reform", temple: "Temple sholom", charisma_level: 2, city: "los angeles, CA")
 
 user1 = User.create(name: "tyler albertoson", email: "tyeler@example.com", occupation: "farmer", dob: "1977-03-01", bothersome_level: 9, password: "password")
 

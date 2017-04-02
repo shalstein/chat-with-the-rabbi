@@ -26,14 +26,12 @@ ActiveRecord::Schema.define(version: 20170327142927) do
 
   create_table "rabbis", force: :cascade do |t|
     t.string   "name"
-    t.integer  "age"
-    t.integer  "years_of_experience"
     t.string   "branch_of_judaism"
     t.string   "temple"
     t.string   "city"
     t.string   "charisma_level"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "services", force: :cascade do |t|

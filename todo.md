@@ -5,4 +5,4 @@
 5. issue with admin link with future appointments needs to be changed to my appointments. new link for that specifc users appointments in url.
 
 6. nested form  appointments/New rabbbi needs to be a form for tag.
-7
+7 add form to add money on user show page
