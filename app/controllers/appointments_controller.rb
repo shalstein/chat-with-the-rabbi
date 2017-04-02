@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
   def new
     @user = requested_user
     @appointment = @user.appointments.build
-    @rabbi = @appointment.build_rabbi
+    @rabbi = Rabbi.new
   end
 
   def create
