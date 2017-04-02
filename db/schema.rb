@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170327142927) do
     t.string   "temple"
     t.string   "city"
     t.string   "charisma_level"
+    t.date     "dob"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end

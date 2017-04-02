@@ -24,17 +24,18 @@
 
     <div class="field">
       <%= r.label :name %>
-      <%= r.text_field :name %>
+      <%= r.text_field :name, value: "" %>
     </div><br>
+
 
     <div class="field">
       <%= r.label :branch_of_judaism %>
-      <%= r.text_field :branch_of_judaism%>
+      <%= r.text_field :branch_of_judaism, value: ""%>
     </div><br>
 
     <div class="field">
       <%= r.label :charisma_level %>
-      <%= r.select(:charisma_level, options_for_select([['1',1], ['2',2], ['3',3], ['4',4], ['5',5]] ), { include_blank: true })  %>
+      <%= r.select(:charisma_level, options_for_select([['1',1], ['2',2], ['3',3], ['4',4], ['5',5]] ), { include_blank: true, value: "" })  %>
     </div>
   <% end %>
 </fieldset><br>

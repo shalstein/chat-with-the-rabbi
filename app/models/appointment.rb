@@ -13,7 +13,7 @@ class Appointment < ApplicationRecord
 
   def rabbi_attributes=(attributes)
     unless attributes.values.all? { |value| value.blank? }
-      self.rabbi = Rabbi.find_or_create_by(attributes)
+      self.rabbi = Rabbi.find_or_initialize_by(attributes)
     end
   end
 

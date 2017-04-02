@@ -62,7 +62,7 @@ class AppointmentsController < ApplicationController
 
 
   def appointment_params
-    params.require(:appointment).permit(:rabbi_id, :service_id, :starttime, :time, :date, rabbi_attributes: [:name, :age, :years_of_experience, :branch_of_judaism, :charisma_level])
+    params.require(:appointment).permit(:rabbi_id, :service_id, :starttime, :time, :date, rabbi_attributes: [:name, :dob, :branch_of_judaism, :charisma_level])
   end
 
   def requested_appointment

@@ -6,6 +6,7 @@ class CreateRabbis < ActiveRecord::Migration[5.0]
       t.string :temple
       t.string :city
       t.string :charisma_level
+      t.date :dob
       t.timestamps
     end
   end
