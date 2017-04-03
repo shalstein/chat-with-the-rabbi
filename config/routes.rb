@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   patch 'users/:user_id/money', to: 'users#update_wallet', as: :update_user_money
 
 
-  resource :rabbis
+  resources :rabbis
 
-  get "rabbis/:id", to: 'rabbis#show', as: :rabbi
 
 end

@@ -18,6 +18,9 @@
   <%= f.label :dob, "Date of Birth:" %>
   <%= f.date_field :dob %><br><br>
 
+  <%= f.label :branch_of_judaism %>
+  <%= f.text_field :branch_of_judaism %><br><br>
+
   <%= f.label :charisma_level %>
   <%= f.select(:charisma_level, options_for_select([['1',1], ['2',2], ['3',3], ['4',4], ['5',5]] ), { include_blank: true, value: "" }) %><br><br>
 

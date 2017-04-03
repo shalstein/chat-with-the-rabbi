@@ -1,0 +1,9 @@
+<h1>Rabbi <%= @rabbi.name %>'s Profile</h1>
+
+<p>Birthday: <%= @rabbi.dob %></p>
+
+<p>Affiliated Branch of Judaisim: <%= @rabbi.branch_of_judaism %></p>
+
+<p>Charisma Level: <%= @rabbi.charisma_level %></p>
+
+<p><%= link_to "Edit Rabbi", edit_rabbi_path(@rabbi)%></p>

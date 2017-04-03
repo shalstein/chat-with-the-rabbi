@@ -9,7 +9,7 @@ class RabbisController < ApplicationController
   end
 
   def show
-    render plain: "show"
+    @rabbi = Rabbi.find(params[:id])
   end
 
   def create
@@ -33,7 +33,7 @@ class RabbisController < ApplicationController
   private
 
   def rabbi_params
-    params.require(:rabbi).permit(:name, :dob, :charisma_level)
+    params.require(:rabbi).permit(:name, :dob, :branch_of_judaism, :charisma_level)
   end
 
 end
