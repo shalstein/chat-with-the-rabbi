@@ -6,4 +6,8 @@
 
 <p>Charisma Level: <%= @rabbi.charisma_level %></p>
 
+<p>You have <%= pluralize(@upcoming_appoitments_count, "appointment")%> and <%= pluralize(@rabbi.client_count, "client")%>.  </p>
+
+</p>
+
 <p><%= link_to "Edit Rabbi", edit_rabbi_path(@rabbi)%></p>
