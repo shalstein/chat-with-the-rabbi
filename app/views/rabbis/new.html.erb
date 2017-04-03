@@ -1,28 +1,2 @@
 <h1>New Rabbi Form</h1>
-<% if @rabbi.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@rabbi.errors.count, "error") %> prohibited this appointment from being saved:</h2>
-
-    <ul>
-    <% @rabbi.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
-<%= form_for @rabbi do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br><br>
-
-  <%= f.label :dob, "Date of Birth:" %>
-  <%= f.date_field :dob %><br><br>
-
-  <%= f.label :branch_of_judaism %>
-  <%= f.text_field :branch_of_judaism %><br><br>
-
-  <%= f.label :charisma_level %>
-  <%= f.select(:charisma_level, options_for_select([['1',1], ['2',2], ['3',3], ['4',4], ['5',5]] ), { include_blank: true, value: "" }) %><br><br>
-
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>

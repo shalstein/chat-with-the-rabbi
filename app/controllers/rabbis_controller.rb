@@ -22,9 +22,18 @@ class RabbisController < ApplicationController
   end
 
   def edit
+    @rabbi = Rabbi.find(params[:id])
   end
 
   def update
+    @rabbi = Rabbi.find(params[:id])
+
+    if @rabbi.update(rabbi_params)
+      redirect_to rabbi_path(@rabbi), alert: "Sucssefully updated Rabbi profile."
+    else
+      render :edit
+    end
+
   end
 
   def delete
