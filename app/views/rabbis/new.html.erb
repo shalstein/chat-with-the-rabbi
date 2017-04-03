@@ -1,0 +1,14 @@
+<h1>New Rabbi Form</h1>
+
+<%= form_for @rabbi do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br><br>
+
+  <%= f.label :dob, "Date of Birth:" %>
+  <%= f.date_field :dob %><br><br>
+
+  <%= f.label :charisma_level %>
+  <%= f.select(:charisma_level, options_for_select([['1',1], ['2',2], ['3',3], ['4',4], ['5',5]] ), { include_blank: true, value: "" }) %><br><br>
+
+  <%= f.submit %>
+<% end %>

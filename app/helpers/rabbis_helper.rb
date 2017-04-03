@@ -1,0 +1,2 @@
+module RabbisHelper
+end
