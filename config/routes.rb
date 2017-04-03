@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   resource :rabbis
 
+  get "rabbis/:id", to: 'rabbis#show', as: :rabbi
+
 end

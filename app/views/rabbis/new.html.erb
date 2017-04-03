@@ -1,4 +1,15 @@
 <h1>New Rabbi Form</h1>
+<% if @rabbi.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@rabbi.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+    <ul>
+    <% @rabbi.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= form_for @rabbi do |f| %>
   <%= f.label :name %>
