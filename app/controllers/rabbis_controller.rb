@@ -1,7 +1,7 @@
 class RabbisController < ApplicationController
 
   def index
-    @rabbi = Rabbi.all
+    @rabbis = Rabbi.all
   end
 
   def new

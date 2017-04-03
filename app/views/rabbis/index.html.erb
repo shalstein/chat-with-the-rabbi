@@ -1,0 +1,8 @@
+<h1>Find a Rabbi</h1>
+  <div class="rabbi">
+    <ol>
+      <% @rabbis.each do |rabbi| %>
+        <p><li><%= link_to "Rabbi #{rabbi.name}", rabbi_path(rabbi)%> Charisma Level: <%= rabbi.charisma_level%></li></p>
+      <% end %>
+    </ol>
+  </div>
