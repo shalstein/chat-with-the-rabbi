@@ -9,7 +9,7 @@ class Rabbi < ApplicationRecord
   has_many :users, through: :appointments
 
   def future_appointments #try to make it do 1 sql query instead of 2
-    appointments.where("starttime > ?", Time.now)
+    appointments.where("starttime > ?", Time.current)
   end
 
   def client_count

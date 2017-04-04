@@ -8,7 +8,7 @@ class Appointment < ApplicationRecord
   accepts_nested_attributes_for :rabbi
 
 
-  scope :future_appointments, -> (user_id) {where("user_id = ? AND starttime > ?",user_id, Time.now )}
+  scope :future_appointments, -> (user_id) {where("user_id = ? AND starttime > ?",user_id, Time.current )}
 
 
   def rabbi_attributes=(attributes)
