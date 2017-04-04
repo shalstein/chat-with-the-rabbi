@@ -5,6 +5,7 @@ class Ability
     if user.normal?
       can [:read, :create, :update, :destroy, :edit, :update], Appointment, user_id: user.id
       can [:read, :update], User, id: user.id
+      can [:read, :update], Rabbi
 
 
 

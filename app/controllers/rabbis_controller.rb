@@ -1,4 +1,6 @@
 class RabbisController < ApplicationController
+  load_and_authorize_resource
+  before_action :authenticate_user!
 
   def index
     @rabbis = Rabbi.all
@@ -37,7 +39,11 @@ class RabbisController < ApplicationController
 
   end
 
-  def delete
+
+  def destroy
+    @rabbi = Rabbi.find(params[:id])
+    @rabbi.destroy
+    redirect_to rabbis_path, alert: "Sucssefully delteted Rabbi."
   end
 
   private

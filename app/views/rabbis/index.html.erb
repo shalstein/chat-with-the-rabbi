@@ -1,8 +1,8 @@
 <h1>Find a Rabbi</h1>
-  <div class="rabbi">
-    <ol>
-      <% @rabbis.each do |rabbi| %>
-        <p><li><%= link_to "Rabbi #{rabbi.name}", rabbi_path(rabbi)%> Charisma Level: <%= rabbi.charisma_level%></li></p>
+  <ol>
+    <% @rabbis.each do |rabbi| %>
+      <div class="rabbi">
+        <p><li><%= link_to "Rabbi #{rabbi.name}", rabbi_path(rabbi)%> Charisma Level: <%= rabbi.charisma_level%> <%= button_to "Delete", rabbi_path(rabbi), {method: :delete} if current_user.admin?  %></li></p>
+      </div>
       <% end %>
     </ol>
-  </div>
