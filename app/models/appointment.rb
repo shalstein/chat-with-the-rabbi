@@ -17,4 +17,14 @@ class Appointment < ApplicationRecord
     end
   end
 
+    def charge
+      user.update(wallet: user.wallet - service.fee) if enough_money?
+    end
+
+    def enough_money?
+      user.wallet >= service.fee
+    end
+
+
+
 end

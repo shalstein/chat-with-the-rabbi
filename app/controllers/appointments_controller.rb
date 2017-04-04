@@ -18,7 +18,11 @@ class AppointmentsController < ApplicationController
     @appointment = @user.appointments.build(appointment_params)
 
     if @appointment.save
+      if @appointment.charge
        redirect_to user_appointment_path(@user, @appointment)
+     else
+       redirect_to edit_user_money_path(@user), alert: "You don't have enough money for this appointment!"
+     end
     else
       @appointment.rabbi ||= @appointment.build_rabbi
       render :new

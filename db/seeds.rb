@@ -1,4 +1,4 @@
-rab1 = Rabbi.create(name: "Bill Toms", branch_of_judaism: "reform", temple: "Temple rodef mammon", charisma_level: 10, city: "nowherevile, AK")
+rab1 = Rabbi.create(name: "Bill Toms", branch_of_judaism: "reform", temple: "Temple rodef mammon", charisma_level: 3, city: "nowherevile, AK")
 
 
 rab2 = Rabbi.create(name: "roger desnenberg", branch_of_judaism: "reform", temple: "Temple sholom", charisma_level: 2, city: "los angeles, CA")
