@@ -45,7 +45,6 @@ class AppointmentsController < ApplicationController
     if @appointment.update(appointment_params)
       redirect_to user_appointment_path(@user, @appointment)
     else
-      @appointment.rabbi ||= @appointment.build_rabbi
       render "edit"
     end
 
