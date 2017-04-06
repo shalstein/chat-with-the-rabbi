@@ -18,8 +18,7 @@ class AppointmentsController < ApplicationController
     @user = requested_user
     @appointment = @user.appointments.build(appointment_params)
 
-
-    if @appointment.save
+    if @appointment.save && @appointment.rabbi.save
       if @appointment.charge
        redirect_to user_appointment_path(@user, @appointment)
      else
@@ -27,15 +26,14 @@ class AppointmentsController < ApplicationController
      end
     else
       @errors = Array.new
-      @errors << @appointment.errors.full_messages if @appointment.errors.any?
       @errors << @appointment.rabbi.errors.full_messages if @appointment.rabbi && @appointment.rabbi.invalid?
+      @errors << @appointment.errors.full_messages if @appointment.errors.any?
       @errors = @errors.flatten
 
       if (@appointment.rabbi && @appointment.rabbi.persisted?) || (params.require(:appointment).permit(rabbi_attributes: [:name, :dob, :branch_of_judaism, :charisma_level]).to_h[:rabbi_attributes].values.all? {|attribute| attribute.blank?})
         @rabbi = @appointment.build_rabbi
       end
-      # set @rabbi to = a new Rabbi instance if the appointemnt rabbi has an id or if the appointment_rabbi_attributes are empty
-      # set @rabbi to = an exisitng rabbi from appointment_rabbi_attributes without an id
+
       render :new
     end
 

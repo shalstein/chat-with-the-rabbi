@@ -1,7 +1,7 @@
 class Appointment < ApplicationRecord
   belongs_to :user
-  belongs_to :rabbi #, optional: true
-  belongs_to :service#, optional: true
+  belongs_to :rabbi
+  belongs_to :service
 
   validates :starttime, :service, :rabbi, presence: true
 
