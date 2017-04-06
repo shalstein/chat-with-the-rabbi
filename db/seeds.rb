@@ -1,9 +1,13 @@
-rab1 = Rabbi.create(name: "Bill Toms", branch_of_judaism: "reform", temple: "Temple rodef mammon", charisma_level: 3, city: "nowherevile, AK")
+rab1 = Rabbi.create(name: "Bill Toms", branch_of_judaism: "reform", dob: "1999-03-02", temple: "Temple rodef mammon", charisma_level: 3, city: "nowherevile, AK")
 
 
-rab2 = Rabbi.create(name: "roger desnenberg", branch_of_judaism: "reform", temple: "Temple sholom", charisma_level: 2, city: "los angeles, CA")
+rab2 = Rabbi.create(name: "Roger Desnenberg", branch_of_judaism: "reform", temple: "Temple sholom",dob: "1985-08-02", charisma_level: 4, city: "los angeles, CA")
 
-user1 = User.create(name: "tyler albertoson", email: "tyeler@example.com", occupation: "farmer", dob: "1977-03-01", bothersome_level: 9, password: "password")
+rab3 = Rabbi.create(name: "Jackson Jakes", branch_of_judaism: "reform", dob: "1988-03-08", temple: "Temple sholom", charisma_level: 5, city: "los angeles, CA")
+
+rab2 = Rabbi.create(name: "Oliva Oliver", branch_of_judaism: "reform", temple: "Temple sholom", dob: "1990-04-06", charisma_level: 1, city: "los angeles, CA")
+
+user1 = User.create(name: "tyler albertson", email: "tyeler@example.com", occupation: "farmer", dob: "1977-03-01", bothersome_level: 9, password: "password")
 
 user4 = User.create(name: "Rachel Toads", email: "rachel@example.com", occupation: "Bartender", dob: "1999-03-01", bothersome_level: 2, password: "password")
 
@@ -11,11 +15,19 @@ user2 = User.create(name: "joe Toads", email: "joe@example.com", occupation: "Ba
 
 ser1 = Service.create(name: "Marrige Cermony", fee: 675)
 
-ser2 = Service.create(name: "Counsouling session", fee: 955)
+ser2 = Service.create(name: "Counseling session", fee: 955)
 
-ser2 = Service.create(name: "Buisness Advice", fee: 877)
+ser3 = Service.create(name: "Business Advice", fee: 877)
 
-ser2 = Service.create(name: "Divorce", fee: 545)
+ser4 = Service.create(name: "Divorce", fee: 545)
+
+ser5 = Service.create(name: "Funeral", fee: 444)
+
+ser6 = Service.create(name: "Coffee at Starbucks", fee: 250)
+
+
+
+
 
 
 

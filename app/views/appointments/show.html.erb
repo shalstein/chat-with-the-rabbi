@@ -5,6 +5,8 @@
 <p>Date: <%= @appointment.starttime.strftime("%A, %B %y") %></p>
 <p>Reason: <%= @appointment.service.name %></p>
 <p>For: <%= @user.name %></p>
+<p>Fee: $<%= @appointment.service.fee %></p>
+
 
 <%= link_to "Edit Appointment", edit_user_appointment_path(@appointment.user, @appointment) %>
 <br><br>

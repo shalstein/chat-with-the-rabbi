@@ -1,14 +1,14 @@
 class Rabbi < ApplicationRecord
 
 
-  validates :name, :charisma_level, presence: true
+  validates :name, :charisma_level, :dob, presence: true
   validates :charisma_level, numericality: {only_integer: true, less_than_or_equal_to: 5}
-  validates :name, uniqueness: {scope: :dob}
+  validates :name, uniqueness: true
 
   has_many :appointments, inverse_of: :rabbi
   has_many :users, through: :appointments
 
-  def future_appointments #try to make it do 1 sql query instead of 2
+  def future_appointments
     appointments.where("starttime > ?", Time.current)
   end
 
