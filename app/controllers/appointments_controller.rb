@@ -23,7 +23,6 @@ class AppointmentsController < ApplicationController
         redirect_to edit_user_money_path(@user), alert: "You don't have enough money for this appointment!"
       end
     else
-
       render :new
     end
 
