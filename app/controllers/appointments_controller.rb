@@ -17,8 +17,8 @@ class AppointmentsController < ApplicationController
   def create
     @user = requested_user
     @appointment = @user.appointments.build(appointment_params)
-
-    if @appointment.save && @appointment.rabbi.save
+  #  binding.pry
+    if @appointment.save 
       if @appointment.charge
        redirect_to user_appointment_path(@user, @appointment)
      else

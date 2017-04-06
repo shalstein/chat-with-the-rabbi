@@ -3,7 +3,7 @@ class Appointment < ApplicationRecord
   belongs_to :rabbi
   belongs_to :service
 
-  validates :starttime, :service, :rabbi, presence: true
+  validates :starttime, :service_id, :rabbi_id, presence: true
 
   # accepts_nested_attributes_for :rabbi?
 

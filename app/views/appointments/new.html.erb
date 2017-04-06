@@ -16,7 +16,7 @@
 <% end %>
 <%= form_for [@user, @appointment]  do |f| %>
 
-<div class="field<%='_with_errors' if @appointment.errors[:rabbi].any?%>">
+<div class="field">
   <label for="rabbi_id">With Rabbi:</label>
   <%= f.collection_select(:rabbi_id, Rabbi.all ,:id, :name, {:prompt => 'Select a Rabbi'} ) %>
 </div>
@@ -48,7 +48,7 @@
     <% end %>
 </fieldset><br>
 
-<div class="field<%='_with_errors' if @appointment.errors[:service].any?%>">
+<div class="field">
   <label for="service_id">Purpose?</label>
   <%= f.collection_select(:service_id, Service.all ,:id, :name, {:prompt => 'Select a purpose'} ) %><br><br>
 </div>
