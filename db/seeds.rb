@@ -1,11 +1,11 @@
-rab1 = Rabbi.create(name: "Bill Toms", branch_of_judaism: "reform", dob: "1999-03-02", temple: "Temple rodef mammon", charisma_level: 3, city: "nowherevile, AK")
+rab1 = Rabbi.create(first_name: "Arthur", last_name: "Markson", branch_of_judaism: "reform", dob: "1999-03-02", temple: "Temple rodef mammon", charisma_level: 3, city: "nowherevile, AK")
 
 
-rab2 = Rabbi.create(name: "Roger Desnenberg", branch_of_judaism: "reform", temple: "Temple sholom",dob: "1985-08-02", charisma_level: 4, city: "los angeles, CA")
+rab2 = Rabbi.create(first_name: "Roger", last_name: "Desnenberg", branch_of_judaism: "reform", temple: "Temple sholom",dob: "1985-08-02", charisma_level: 4, city: "los angeles, CA")
 
-rab3 = Rabbi.create(name: "Jackson Jakes", branch_of_judaism: "reform", dob: "1988-03-08", temple: "Temple sholom", charisma_level: 5, city: "los angeles, CA")
+rab3 = Rabbi.create(first_name: "Jackson ", last_name: "Jakes" , branch_of_judaism: "reform", dob: "1988-03-08", temple: "Temple sholom", charisma_level: 5, city: "los angeles, CA")
 
-rab2 = Rabbi.create(name: "Oliva Oliver", branch_of_judaism: "reform", temple: "Temple sholom", dob: "1990-04-06", charisma_level: 1, city: "los angeles, CA")
+rab2 = Rabbi.create(first_name: "Oliva", last_name: "Oliver"   , branch_of_judaism: "reform", temple: "Temple sholom", dob: "1990-04-06", charisma_level: 1, city: "los angeles, CA")
 
 user1 = User.create(name: "tyler albertson", email: "tyeler@example.com", occupation: "farmer", dob: "1977-03-01", bothersome_level: 9, password: "password")
 

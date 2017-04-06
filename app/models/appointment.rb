@@ -3,18 +3,15 @@ class Appointment < ApplicationRecord
   belongs_to :rabbi
   belongs_to :service
 
-  validates :starttime, :service_id, :rabbi_id, presence: true
-
+  validates :starttime, :service_id, presence: true
+  validates_associated :rabbi
   # accepts_nested_attributes_for :rabbi?
 
 
   scope :future_appointments, -> (user_id) {where("user_id = ? AND starttime > ?",user_id, Time.current )}
 
-
   def rabbi_attributes=(attributes)
-    unless attributes.values.all? { |value| value.blank? }
-      self.rabbi = Rabbi.find_or_create_by(attributes)
-    end
+    self.rabbi = Rabbi.find_or_create_by(attributes)
   end
 
     def charge

@@ -3,50 +3,29 @@
 
 
 
-<% if @errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@errors.count, "error") %> prohibited this appointment from being saved:</h2>
+  <% if @appointment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
 
-    <ul>
-    <% @errors.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+      <ul>
+      <% @appointment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
 <%= form_for [@user, @appointment]  do |f| %>
-
-<div class="field">
-  <label for="rabbi_id">With Rabbi:</label>
-  <%= f.collection_select(:rabbi_id, Rabbi.all ,:id, :name, {:prompt => 'Select a Rabbi'} ) %>
-</div>
-
   <%= f.fields_for :rabbi, @rabbi do |r| %>
-  <p>Can't find your Rabbi? <br> Add one here:</p>
-  <fieldset>
-    <legend>New Rabbi</legend>
+
       <div class="field">
-        <%= r.label :name %>
-        <%= r.text_field :name %>
+        <label>Enter a Rabbi</label><br>
+        <%= r.text_field :first_name, placeholder: "First name" %>
       </div><br>
-
       <div class="field">
-        <%= r.label :dob, "Date of Birth"%>
-        <%= r.date_field :dob %>
+        <%= r.text_field :last_name, placeholder: "Last Name" %>
       </div><br>
-
-
-      <div class="field">
-        <%= r.label :branch_of_judaism %>
-        <%= r.text_field :branch_of_judaism%>
-      </div><br>
-
-      <div class="field">
-        <%= r.label :charisma_level %>
-        <%= r.select(:charisma_level, options_for_select([['1',1], ['2',2], ['3',3], ['4',4], ['5',5]] ), { include_blank: true })  %>
-      </div>
     <% end %>
-</fieldset><br>
 
 <div class="field">
   <label for="service_id">Purpose?</label>

@@ -1,9 +1,8 @@
 class Rabbi < ApplicationRecord
 
 
-  validates :name, :charisma_level, :dob, presence: true
-  validates :charisma_level, numericality: {only_integer: true, less_than_or_equal_to: 5}
-  validates :name, uniqueness: true
+  validates :first_name, :last_name, presence: true
+  validates :first_name, uniqueness: {scope: :last_name}
 
   has_many :appointments, inverse_of: :rabbi
   has_many :users, through: :appointments

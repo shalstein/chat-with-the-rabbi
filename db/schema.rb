@@ -25,7 +25,8 @@ ActiveRecord::Schema.define(version: 20170327142927) do
   end
 
   create_table "rabbis", force: :cascade do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "branch_of_judaism"
     t.string   "temple"
     t.string   "city"

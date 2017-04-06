@@ -10,3 +10,16 @@
 
 
 ChatWithTheRabbi
+
+
+
+<% if @errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+    <ul>
+    <% @errors.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>

@@ -1,6 +1,6 @@
 <h2>Appointment Summary</h2>
 
-<p>Rabbi: <%= @appointment.rabbi.name %></p>
+<p>Rabbi: <%= "#{@appointment.rabbi.first_name} #{@appointment.rabbi.last_name}" %></p>
 <p>Time: <%= @appointment.starttime.strftime("%I:%M %p") %></p>
 <p>Date: <%= @appointment.starttime.strftime("%A, %B %y") %></p>
 <p>Reason: <%= @appointment.service.name %></p>
