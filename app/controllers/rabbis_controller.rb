@@ -49,7 +49,7 @@ class RabbisController < ApplicationController
   private
 
   def rabbi_params
-    params.require(:rabbi).permit(:name, :dob, :branch_of_judaism, :charisma_level)
+    params.require(:rabbi).permit(:first_name, :last_name, :dob, :branch_of_judaism, :charisma_level)
   end
 
 end

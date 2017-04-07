@@ -11,8 +11,11 @@
 <% end %>
 
 <%= form_for @rabbi do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br><br>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %><br><br>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %><br><br>
 
   <%= f.label :dob, "Date of Birth:" %>
   <%= f.date_field :dob %><br><br>

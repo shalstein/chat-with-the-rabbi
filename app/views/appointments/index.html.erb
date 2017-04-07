@@ -1,7 +1,7 @@
 
 
 <% if @appointments.blank? %>
-  <p>You don't have any appointments yet. <%= link_to "Make an appointment", new_user_appointment_path(@user)%> with your rabbi now! </p>
+  <p>You don't have any upcoming appointments yet. <%= link_to "Make an appointment", new_user_appointment_path(@user)%> with your rabbi now! </p>
   <% else %>
   <h2><%=@user.name%>'s Future Appointments</h2>
     <% @appointments.each do |appointment| %>
