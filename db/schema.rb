@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327142927) do
+ActiveRecord::Schema.define(version: 20170326162012) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "rabbi_id"
@@ -58,12 +58,11 @@ ActiveRecord::Schema.define(version: 20170327142927) do
     t.string   "occupation"
     t.date     "dob"
     t.integer  "bothersome_level",       default: 0
+    t.string   "provider"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "wallet",                 default: 0
     t.integer  "role",                   default: 0
-    t.string   "provider"
-    t.string   "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

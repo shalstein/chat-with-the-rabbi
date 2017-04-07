@@ -1,20 +1,18 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
+  before_action :set_user
 
   def index
-    @user = requested_user
     @appointments = Appointment.future_appointments(@user.id)
   end
 
   def new
-    @user = requested_user
     @appointment = @user.appointments.build
     @rabbi = Rabbi.new
   end
 
   def create
-    @user = requested_user
     @appointment = @user.appointments.build(appointment_params)
     if @appointment.save
       if @appointment.charge
@@ -29,17 +27,14 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @user = requested_user
     @appointment = @user.appointments.find(params[:id])
   end
 
   def edit
-    @user = requested_user
     @appointment = @user.appointments.find(params[:id])
   end
 
   def update
-    @user = requested_user
     @appointment = requested_appointment
 
     if @appointment.update(appointment_params)
@@ -51,7 +46,6 @@ class AppointmentsController < ApplicationController
   end
 
   def destroy
-    @user = requested_user
     @appointment = @user.appointments.find(params[:id])
     @appointment.destroy
     redirect_to user_appointments_path(@user)
@@ -68,9 +62,14 @@ class AppointmentsController < ApplicationController
     Appointment.find_by(id: params[:id])
   end
 
-  def requested_user
+
+  def set_user
     @user = User.find_by(id: params[:user_id])
   end
+
+  def set_appointment
+  end
+
 
 
 end

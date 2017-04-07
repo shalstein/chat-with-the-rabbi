@@ -34,6 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :occupation
       t.date :dob
       t.integer :bothersome_level, default: 0
+      t.string :provider
 
       t.timestamps null: false
     end
