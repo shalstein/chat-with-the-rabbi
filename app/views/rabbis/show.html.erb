@@ -1,6 +1,7 @@
+<div class="container">
 <h1>Rabbi <%= @rabbi.last_name %>'s Profile</h1>
 
-<p>Birthday: <%= @rabbi.dob %></p>
+<p>Birthday: <%= @rabbi.dob.strftime("%A, %B %d, %Y") if @rabbi.dob %></p>
 
 <p>Affiliated Branch of Judaisim: <%= @rabbi.branch_of_judaism %></p>
 
@@ -11,3 +12,5 @@
 </p>
 
 <p><%= link_to "Edit Rabbi", edit_rabbi_path(@rabbi)%></p>
+
+</div>

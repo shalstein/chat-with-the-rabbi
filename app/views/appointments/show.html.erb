@@ -2,7 +2,7 @@
 
 <p>Rabbi: <%= link_to "#{@appointment.rabbi.first_name} #{@appointment.rabbi.last_name}", rabbi_path(@appointment.rabbi) %></p>
 <p>Time: <%= @appointment.starttime.strftime("%I:%M %p") %></p>
-<p>Date: <%= @appointment.starttime.strftime("%A, %B %y") %></p>
+<p>Date: <%= @appointment.starttime.strftime("%A, %B %d, %Y") %></p>
 <p>Reason: <%= @appointment.service.name %></p>
 <p>For: <%= @user.name %></p>
 <p>Fee: $<%= @appointment.service.fee %></p>

@@ -22,3 +22,5 @@
 
 #ignore secret .env files
 .env
+
+todo.md
