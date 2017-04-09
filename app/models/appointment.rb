@@ -13,6 +13,7 @@ class Appointment < ApplicationRecord
     self.rabbi = Rabbi.find_or_create_by(attributes)
   end
 
+
   def charge
     user.update(wallet: user.wallet - service.fee) if enough_money?
   end

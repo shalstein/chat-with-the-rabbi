@@ -35,7 +35,8 @@ class AppointmentsController < ApplicationController
   end
 
   def update
-    @appointment = requested_appointment
+    @appointment = Appointment.find_by(id: params[:id])
+
 
     if @appointment.update(appointment_params)
       redirect_to user_appointment_path(@user, @appointment)
@@ -58,17 +59,11 @@ class AppointmentsController < ApplicationController
     params.require(:appointment).permit(:rabbi_id, :service_id, :starttime, :time, :date, rabbi_attributes: [:first_name, :last_name])
   end
 
-  def requested_appointment
-    Appointment.find_by(id: params[:id])
-  end
-
 
   def set_user
     @user = User.find_by(id: params[:user_id])
   end
 
-  def set_appointment
-  end
 
 
 

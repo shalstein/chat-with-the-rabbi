@@ -35,8 +35,7 @@
 
 <div class="field">
   <%= f.label :starttime, "Date:"  %>
-  <%= f.date_select :starttime, prompt: true, start_year: Date.current.year, end_year: Date.current.year + 1, order: [:day, :month, :year] %>
-{hour: 'Choose hour', minute: 'Choose minute', second: 'Choose seconds'}
+  <%= f.date_select :starttime, prompt: true, start_year: Date.current.year, end_year: Date.current.year + 1, order: [:day, :month, :year]%>
 </div><br>
 
 <div class="field">

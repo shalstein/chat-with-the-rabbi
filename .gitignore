@@ -23,4 +23,5 @@
 #ignore secret .env files
 .env
 
-/todo.md
+#ignore my todo notes
+todo.md
