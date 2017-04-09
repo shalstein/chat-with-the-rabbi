@@ -34,13 +34,13 @@
 
 
 <div class="field">
-  <%= f.label :starttime, "Date:"  %>
-  <%= f.date_select :starttime, prompt: true, start_year: Date.current.year, end_year: Date.current.year + 1, order: [:day, :month, :year]%>
+  <%= f.label :time_and_date, "Date:"  %>
+  <%= f.date_select :time_and_date, prompt: true, start_year: Date.current.year, end_year: Date.current.year + 1, order: [:day, :month, :year]%>
 </div><br>
 
 <div class="field">
-  <%= f.label :starttime, "Time:"  %>
-  <%= f.time_select :starttime, ampm: true , :ignore_date => true, minute_step: 15, prompt: true %>
+  <%= f.label :time_and_date, "Time:"  %>
+  <%= f.time_select :time_and_date, ampm: true , :ignore_date => true, minute_step: 15, prompt: true %>
 </div><br>
 
 

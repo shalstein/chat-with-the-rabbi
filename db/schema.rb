@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20170326162012) do
     t.integer  "rabbi_id"
     t.integer  "user_id"
     t.integer  "service_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.datetime "starttime"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.datetime "time_and_date"
     t.index ["rabbi_id"], name: "index_appointments_on_rabbi_id"
     t.index ["service_id"], name: "index_appointments_on_service_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"

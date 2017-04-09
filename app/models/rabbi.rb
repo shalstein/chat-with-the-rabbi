@@ -8,7 +8,7 @@ class Rabbi < ApplicationRecord
   has_many :users, through: :appointments
 
   def future_appointments
-    appointments.where("starttime > ?", Time.current)
+    appointments.where("time_and_date > ?", Time.current)
   end
 
   def client_count

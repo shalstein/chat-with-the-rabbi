@@ -31,14 +31,14 @@ ser6 = Service.create(name: "Coffee at Starbucks", fee: 250)
 
 
 
-Appointment.create(rabbi_id: rab2.id, user_id: user2.id, service_id: ser1.id, starttime: "2016-09-03 04:30")
+Appointment.create(rabbi_id: rab2.id, user_id: user2.id, service_id: ser1.id, time_and_date: "2016-09-03 04:30")
 
-Appointment.create(rabbi_id: rab2.id, user_id: user1.id, service_id: ser2.id, starttime: "2017-05-01 07:15")
-
-
-Appointment.create(rabbi_id: rab1.id, user_id: user1.id, service_id: ser2.id, starttime: "2017-07-02 02:45")
-
-Appointment.create(rabbi_id: rab2.id, user_id: user2.id, service_id: ser2.id, starttime: "2017-05-01 07:15")
+Appointment.create(rabbi_id: rab2.id, user_id: user1.id, service_id: ser2.id, time_and_date: "2017-05-01 07:15")
 
 
-Appointment.create(rabbi_id: rab1.id, user_id: user2.id, service_id: ser2.id, starttime: "2017-07-02 02:45")
+Appointment.create(rabbi_id: rab1.id, user_id: user1.id, service_id: ser2.id, time_and_date: "2017-07-02 02:45")
+
+Appointment.create(rabbi_id: rab2.id, user_id: user2.id, service_id: ser2.id, time_and_date: "2017-05-01 07:15")
+
+
+Appointment.create(rabbi_id: rab1.id, user_id: user2.id, service_id: ser2.id, time_and_date: "2017-07-02 02:45")
