@@ -6,7 +6,7 @@ class Appointment < ApplicationRecord
   validates :time_and_date, :service_id, presence: true
   accepts_nested_attributes_for :rabbi
 
-  validate :appointment_must_not_conflict_other_appointments
+  validate :does_not_conflict_other_appointments, :during_regular_hours, :not_on_saturday
 
 
 
@@ -29,9 +29,18 @@ class Appointment < ApplicationRecord
     user.wallet >= service.fee
   end
 
-  def appointment_must_not_conflict_other_appointments
+  def does_not_conflict_other_appointments
     errors.add(:time_and_date, "already taken by another appointment") if rabbi.appointments.exists?(time_and_date: (time_and_date - 15.minutes..time_and_date + 1.hours))
   end
+
+  def during_regular_hours
+    errors.add(:time_and_date, "not during regular hours") unless time_and_date.strftime("%H%M").to_i >= 830 && time_and_date.strftime("%H%M").to_i <= 1830
+  end
+
+  def not_on_saturday
+    errors.add(:time_and_date, "can not be on saturday") if time_and_date.saturday?
+  end
+
 
 
 
