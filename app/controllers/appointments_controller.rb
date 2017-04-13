@@ -39,6 +39,7 @@ class AppointmentsController < ApplicationController
 
 
     if @appointment.update(appointment_params)
+      @appointment.adjust_charges
       redirect_to user_appointment_path(@user, @appointment)
     else
       render "edit"
@@ -49,7 +50,11 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment = @user.appointments.find(params[:id])
     @appointment.destroy
+    @appointment.refund
+
     redirect_to user_appointments_path(@user)
+
+
   end
 
 
