@@ -19,8 +19,8 @@ class Appointment < ApplicationRecord
 
 
   def charge
-    update(total: service.fee + service.fee / 100 * charisma_percentage_fee)
-    user.update(wallet: user.wallet - total) if enough_money?
+    update(cost: service.fee + service.fee / 100 * charisma_percentage_fee)
+    user.update(wallet: user.wallet - cost) if enough_money?
   end
 
   private
@@ -35,10 +35,8 @@ class Appointment < ApplicationRecord
         15
       when "2"
         10
-      when "1"
-        5
       else
-        0
+        5
     end
   end
 
@@ -47,11 +45,11 @@ class Appointment < ApplicationRecord
 
 
   def enough_money?
-    user.wallet >= total
+    user.wallet >= cost
   end
 
   def does_not_conflict_other_appointments
-    errors.add(:time_and_date, "already taken by another appointment") if time_and_date && rabbi.appointments.where(time_and_date: (time_and_date - 15.minutes..time_and_date + 1.hours)).where.not(user_id: user_id).first
+    errors.add(:time_and_date, "already taken by another appointment") if time_and_date && rabbi.appointments.where(time_and_date: (time_and_date - 15.minutes..time_and_date + 1.hours)).where.not(user_id: user_id).exists?
   end
 
   def during_regular_hours

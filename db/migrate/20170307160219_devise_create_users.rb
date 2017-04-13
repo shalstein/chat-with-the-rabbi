@@ -31,10 +31,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       # t.datetime :locked_at
 
       t.string :name
-      t.string :occupation
-      t.date :dob
-      t.integer :bothersome_level, default: 0
       t.string :provider
+      t.integer :wallet, default: 0
+
 
       t.timestamps null: false
     end

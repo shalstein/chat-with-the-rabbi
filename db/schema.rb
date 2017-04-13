@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410203433) do
+ActiveRecord::Schema.define(version: 20170326162012) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer  "rabbi_id"
     t.integer  "user_id"
     t.integer  "service_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "cost",          default: 0
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.datetime "time_and_date"
-    t.integer  "total"
     t.index ["rabbi_id"], name: "index_appointments_on_rabbi_id"
     t.index ["service_id"], name: "index_appointments_on_service_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
@@ -56,13 +56,10 @@ ActiveRecord::Schema.define(version: 20170410203433) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "name"
-    t.string   "occupation"
-    t.date     "dob"
-    t.integer  "bothersome_level",       default: 0
     t.string   "provider"
+    t.integer  "wallet",                 default: 0
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "wallet",                 default: 0
     t.integer  "role",                   default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
