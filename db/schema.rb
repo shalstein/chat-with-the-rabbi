@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 20170326162012) do
     t.string   "branch_of_judaism"
     t.string   "temple"
     t.string   "city"
-    t.string   "charisma_level"
+    t.string   "charisma_level",    default: "1"
     t.date     "dob"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "services", force: :cascade do |t|
