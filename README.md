@@ -1,27 +1,28 @@
-# README
+# Rabbi Appointment Tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+A Rails App that allows you to keep track of your appointments with your favorite rabbis. Say good bye to forgetting about all those appointments.
 
-Things you may want to cover:
 
-* Ruby version
+## Usage
 
-* System dependencies
+To use this app, make sure bundler is installed,
 
-* Configuration
+run
 
-* Database creation
+```bash
+bundle install
+```
 
-* Database initialization
+You will then need to setup and seed the database with
+```
+rails db:migrate
+rails db:seed
+```
+and then to run your server
+```bash
+rails s
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-# chat-with-the-rabbi
-Schedule an appointment with your favorite Rabbi
+You should be able to load the app in your browser at the port specified in the terminal.
+Sign in with your Google account, or create account to set up an appointment.
