@@ -72,4 +72,6 @@ class AppointmentsController < ApplicationController
 
 
 
+
+
 end

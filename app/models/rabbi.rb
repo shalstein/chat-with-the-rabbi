@@ -1,4 +1,5 @@
 class Rabbi < ApplicationRecord
+  before_save :downcase_and_strip
 
 
   validates :first_name, :last_name, presence: true
@@ -13,6 +14,13 @@ class Rabbi < ApplicationRecord
 
   def client_count
     users.distinct.count
+  end
+
+  private
+
+  def downcase_and_strip
+    first_name.strip!.capitalize!
+    last_name.strip!.capitalize!
   end
 
 end

@@ -6,7 +6,7 @@ class Appointment < ApplicationRecord
   validates :time_and_date, :service_id, presence: true
   accepts_nested_attributes_for :rabbi
 
-  validate :does_not_conflict_other_appointments, :during_regular_hours, :not_on_saturday
+  validate :does_not_conflict_other_appointments, :during_regular_hours, :not_on_saturday, :must_be_after_today
 
 
 
@@ -71,6 +71,11 @@ class Appointment < ApplicationRecord
 
   def not_on_saturday
     errors.add(:time_and_date, "can not be on saturday") if time_and_date && time_and_date.saturday?
+  end
+
+  def must_be_after_today
+     errors.add(:time_and_date, "Appointment must be after today") if time_and_date &&
+      time_and_date < Time.current
   end
 
 
