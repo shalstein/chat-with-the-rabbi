@@ -8,6 +8,11 @@ class UsersController < ApplicationController
     @appointments = @user.appointments
   end
 
+  def index
+    @users = User.all
+    render json: @users
+  end
+
   def edit_wallet
     @user = User.find(params[:user_id])
     authorize! :edit, @user

@@ -6,8 +6,8 @@ git_source(:github) do |repo_name|
 end
 gem "omniauth-google-oauth2"
 
-#gem 'omniauth-google'
-#gem 'omniauth'
+
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'cancancan'
 
 gem 'devise'
