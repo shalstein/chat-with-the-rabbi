@@ -13,6 +13,7 @@ class RabbisController < ApplicationController
   def show
     @rabbi = Rabbi.find(params[:id])
     @upcoming_appoitments_count = @rabbi.future_appointments.count
+
   end
 
   def create
