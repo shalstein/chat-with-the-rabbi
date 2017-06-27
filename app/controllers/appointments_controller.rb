@@ -5,6 +5,10 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = Appointment.future_appointments(@user.id)
+    respond_to do |response|
+      response.html {render :index}
+      response.json {render json: @appointments}
+    end
   end
 
   def new

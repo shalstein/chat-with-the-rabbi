@@ -8,7 +8,7 @@ class Appointment < ApplicationRecord
 
   validate :does_not_conflict_other_appointments, :during_regular_hours, :not_on_saturday
 
-
+ 
 
 
   scope :future_appointments, -> (user_id) {where("user_id = ? AND time_and_date > ?",user_id, Time.current )}

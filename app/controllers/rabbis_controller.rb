@@ -13,6 +13,10 @@ class RabbisController < ApplicationController
   def show
     @rabbi = Rabbi.find(params[:id])
     @upcoming_appoitments_count = @rabbi.future_appointments.count
+    respond_to do |response|
+      response.html {render :show}
+      response.json {render json: @rabbi}
+    end
 
   end
 

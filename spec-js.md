@@ -2,10 +2,11 @@
 
 Specs:
 - [x] Use jQuery for implementing new requirements
-- [ ] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
+- [x] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
     1 admin clicks on appointment  
     2 clicking on an appointment in the appointment index will render a show resource via ajax
-- [ ] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
+    3 clicking on a user show user info
+- [x] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
     1admin clicking on show all users will render ajax request on admin profile page
     2clicking on upcoming appointments in the user show page will render index of upcoming appointments
 - [ ] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.

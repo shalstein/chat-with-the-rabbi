@@ -12,7 +12,6 @@ function attachListners() {
     $.get("/users")
       .done(function(users) {
       usersHtml(users)
-      console.log("in thte get method")
     })
 
   })
@@ -25,11 +24,27 @@ function usersHtml(users) {
   })
 
   $('article').html(users_string)
-  $('article a').on('click', function(event) {
+  $('.user').on('click', function(event) {
     event.preventDefault()
-    $.getJSON(`/users/${this.dataset.id}`).done(function(user) {
-      var userHtml = `<li>  ID: ${user.id} - ${user.email} - Wallet: $${user.wallet} - Role: ${user.role}  </li>`
+    $.getJSON(`/users/${this.dataset.id}`)
+
+    .done(function(user) {
+      var userHtml = `<li>  ID: ${user.id} - ${user.email} - Wallet: $${user.wallet}.00 - Role: ${user.role}  </li>  <a href='#' data-user-id='${user.id}' class='appointments' > Get ${user.name}'s' Appointments </a>`
+
       $(`ul a[data-id='${user.id}']`).after(userHtml)
+      $('.appointments').on('click', function(event) {
+        var userId = this.dataset.userId
+        event.preventDefault()
+        $.getJSON(`/users/${userId}/appointments`)
+        .done(function(appointments) {
+          var appointmentHtml = "<ol>"
+          appointments.forEach(function(appointment) {
+            appointmentHtml += ` <li> ${appointment.time_and_date} with Rabbi ${appointment.rabbi.last_name}</li>`
+          })
+          $(`.appointments[data-user-id="${userId}"]`).after(appointmentHtml)
+
+        })
+      })
     })
   })
 }
