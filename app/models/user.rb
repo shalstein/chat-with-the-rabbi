@@ -11,6 +11,10 @@ class User < ApplicationRecord
   validates :name, :wallet, presence: true
   validates :wallet, numericality: { only_integer: true}
 
+  def serializer_fields_for_index
+    "attributes :name"
+  end
+
   def self.from_omniauth(auth)
     where(email: auth.info.email).first_or_create do |user|
       user.email = auth.info.email
