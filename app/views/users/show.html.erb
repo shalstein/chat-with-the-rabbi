@@ -22,22 +22,22 @@
 <div class="link">
   <%= link_to "Add more money to your account", edit_user_money_path(@user) %>
 </div>
-<p><article><a href="#" id="users">List Users</a> </article></p>
-<div id="user-info">
 
-</div>
+<% if current_user.admin? %>
+    <p><article><a href="#" id="users">List Users</a> </article></p>
+    <div id="user-info">
 
-<script id='user-template' type="text/x-handlebars-template" >
+    </div>
+    <script id='user-template' type="text/x-handlebars-template" >
 
-<ul> <h4> User id: {{id}} - {{email}} - Wallet: ${{wallet}}.00 - Role: {{role}} </h4>
-  <h4> {{name}}'s Appointments </h4>
-  <ol>
-    {{#each this.appointments}}
-    <li> {{formatedTime appointments}} with Rabbi {{rabbi.last_name}}   </li>
-   {{/each}}
+    <ul> <h4> User id: {{id}} - {{email}} - Wallet: ${{wallet}}.00 - Role: {{role}} </h4>
+      <h4> {{name}}'s Appointments </h4>
+      <ol>
+        {{#each this.appointments}}
+        <li> {{formatedTime appointments}} with Rabbi {{rabbi.last_name}}   </li>
+       {{/each}}
+     </ol>
+     </ul>
 
-
- </ol>
- </ul>
-
-</script>
+    </script>
+<% end %>

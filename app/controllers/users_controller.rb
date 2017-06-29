@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    authorize! :read, @users
     render json: @users.to_json(only: [:name, :id])
   end
 
