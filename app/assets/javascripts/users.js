@@ -7,10 +7,9 @@ $(function() {
   function addUserInfo(user) {
     var source = $('#user-template').html()
     var template = Handlebars.compile(source)
-
     var html = template(user)
     $(`ul a[data-id='${user.id}']`).after(html)
-  }//addUserInfo] function
+  }//addUserInfo function
 
   function usersHtml(users) {
     var users_string = ""
@@ -23,6 +22,8 @@ $(function() {
       event.preventDefault()
       $.getJSON(`/users/${this.dataset.id}`)
       .done(function(user) {
+
+
         addUserInfo(user)
 
       })//done function
@@ -40,6 +41,12 @@ $(function() {
 
     })
   }//attachListners
+
+Handlebars.registerHelper("formatedTime", function() {
+  return new Date(this.time_and_date)
+})//helper
+
+
 
 })//document ready
 

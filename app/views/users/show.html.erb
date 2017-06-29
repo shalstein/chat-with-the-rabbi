@@ -29,11 +29,11 @@
 
 <script id='user-template' type="text/x-handlebars-template" >
 
-<ul> <p> ID: {{id}} - {{email}} - Wallet: ${{wallet}}.00 - Role: {{role}} </p>
-  <h4> Appointments </h4>
+<ul> <h4> User id: {{id}} - {{email}} - Wallet: ${{wallet}}.00 - Role: {{role}} </h4>
+  <h4> {{name}}'s Appointments </h4>
   <ol>
     {{#each this.appointments}}
-    <li> {{time_and_date}} with Rabbi {{rabbi.last_name}}   </li>
+    <li> {{formatedTime appointments}} with Rabbi {{rabbi.last_name}}   </li>
    {{/each}}
 
 
