@@ -10,7 +10,7 @@
   </div>
 <% end %>
 
-<%= form_for @rabbi do |f| %>
+<%= form_for @rabbi, id: "new_rabbi" do |f| %>
   <%= f.label :first_name %>
   <%= f.text_field :first_name %><br><br>
 
@@ -26,7 +26,6 @@
   <%= f.label :charisma_level %>
   <%= f.select(:charisma_level, options_for_select([['1',1], ['2',2], ['3',3], ['4',4], ['5',5]], f.object.charisma_level )) %><br><br>
 
-  <%= f.submit data: { disable_with: false }
- %>
+  <%= f.submit data: { disable_with: false }  %>
 
 <% end %>

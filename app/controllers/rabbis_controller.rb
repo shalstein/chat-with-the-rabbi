@@ -31,7 +31,7 @@ class RabbisController < ApplicationController
     else
       respond_to do |response|
         response.html { render :new }
-        response.json {render plain: "invalid input"}
+        response.json {render json: "invalid input"}
       end
     end
   end

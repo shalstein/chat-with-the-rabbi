@@ -3,22 +3,19 @@
 Specs:
 - [x] Use jQuery for implementing new requirements
 - [x] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
-    1 admin clicks on appointment  
-    2 clicking on an appointment in the appointment index will render a show resource via ajax
-    THis3 clicking on a user show user info
+     clicking on a user show user info
 - [x] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
-    This1admin clicking on show all users will render ajax request on admin profile page
-    2clicking on upcoming appointments in the user show page will render index of upcoming appointments
+    admin clicking on show all users will render ajax request on admin profile page
 - [x] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
-admin clicking on user will see user info +  appointments
+      admin clicking on user will see user info +  appointments
 - [x] Use your Rails API and a form to create a resource and render the response without a page refresh.
-create Rabbi form on Rabbis index page
-- [ ] Translate JSON responses into js model objects.
-- [ ] At least one of the js model objects must have at least one method added by your code to the prototype.
-rabbis index will format with html rabbis with prototype of
+      create Rabbi form on Rabbis index page
+- [x] Translate JSON responses into js model objects.
+- [x] At least one of the js model objects must have at least one method added by your code to the prototype.
+      response from new rabbi form on rabbi index page will create js object with prototype function  html
 
 Confirm
-- [ ] You have a large number of small Git commits
-- [ ] Your commit messages are meaningful
-- [ ] You made the changes in a commit that relate to the commit message
-- [ ] You don't include changes in a commit that aren't related to the commit message
+- [x] You have a large number of small Git commits
+- [x] Your commit messages are meaningful
+- [x] You made the changes in a commit that relate to the commit message
+- [x] You don't include changes in a commit that aren't related to the commit message
