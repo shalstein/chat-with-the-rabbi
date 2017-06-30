@@ -11,8 +11,6 @@ $(function() {
     })//ajax
     .done(function(rabbi) {
       var rabbiObject = new Rabbi(rabbi.id, rabbi.first_name, rabbi.last_name, rabbi.charisma_level )
-
-      //var html = `<li><a href='/rabbis/${rabbi.id}'> Rabbi ${rabbi.first_name} ${rabbi.last_name} </a> Charisma Level: ${rabbi.charisma_level} </li>`
       $("ol").append(rabbiObject.html())
       $('form').trigger('reset')
     })//done

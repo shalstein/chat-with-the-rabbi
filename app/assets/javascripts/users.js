@@ -41,21 +41,7 @@ $(function() {
 
     })
   }//attachListners
-
 Handlebars.registerHelper("formatedTime", function() {
   return new Date(this.time_and_date)
 })//helper
-
-
-
 })//document ready
-
-
-
-
-
-$(function() {
-  $("#click").on('click', function(event) {
-    alert("clicked")
-  })
-})
