@@ -11,7 +11,7 @@ Specs:
     2clicking on upcoming appointments in the user show page will render index of upcoming appointments
 - [x] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
 admin clicking on user will see user info +  appointments
-- [ ] Use your Rails API and a form to create a resource and render the response without a page refresh.
+- [x] Use your Rails API and a form to create a resource and render the response without a page refresh.
 create Rabbi form on Rabbis index page
 - [ ] Translate JSON responses into js model objects.
 - [ ] At least one of the js model objects must have at least one method added by your code to the prototype.

@@ -4,6 +4,7 @@ class RabbisController < ApplicationController
 
   def index
     @rabbis = Rabbi.all
+    @rabbi = Rabbi.new
   end
 
   def new
@@ -23,9 +24,15 @@ class RabbisController < ApplicationController
   def create
     @rabbi = Rabbi.new(rabbi_params)
     if @rabbi.save
-      redirect_to rabbi_path(@rabbi)
+      respond_to do |response|
+        response.html {redirect_to rabbi_path(@rabbi)}
+        response.json {render json: @rabbi}
+      end
     else
-      render :new
+      respond_to do |response|
+        response.html { render :new }
+        response.json {render plain: "invalid input"}
+      end
     end
   end
 
