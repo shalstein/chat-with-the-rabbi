@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     if user.normal?
-      can [:read, :create, :update, :destroy, :edit], Appointment, user_id: user.id
+      can [:read, :create, :update, :destroy, :edit], Appointment
       can [:read, :update], User, id: user.id
       can [:read, :update, :create], Rabbi
 

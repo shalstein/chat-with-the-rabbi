@@ -1,6 +1,8 @@
 class AppointmentsController < ApplicationController
   before_action :authenticate_user!
-  load_and_authorize_resource
+  load_and_authorize_resource :user
+  load_and_authorize_resource :appointment, :through => :user
+
   before_action :set_user
 
   def index
