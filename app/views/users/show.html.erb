@@ -28,8 +28,8 @@
     </div>
     <script id='user-template' type="text/x-handlebars-template" >
 
-    <ul> <h4> User id: {{id}} - {{email}} - Wallet: ${{wallet}}.00 - Role: {{role}} </h4>
-      <h4> {{name}}'s Appointments </h4>
+    <ul> <h4>User id: {{id}} - {{email}} - Wallet: ${{wallet}}.00 - Role: {{role}} </h4>
+      <h4>{{name}}'s Appointments </h4>
       <ol>
         {{#each this.appointments}}
         <li> {{formatedTime appointments}} with Rabbi {{rabbi.last_name}}   </li>
