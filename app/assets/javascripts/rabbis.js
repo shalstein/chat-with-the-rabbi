@@ -9,9 +9,10 @@ $(function() {
       dataType: "json",
       contentType: "application/json"
     })//ajax
-    .done(function(rabbi) {
+    .done(function(json) {
+      const { rabbi, isAdmin } = json;
       var rabbiObject = new Rabbi(rabbi.id, rabbi.first_name, rabbi.last_name, rabbi.charisma_level )
-      $("ol").append(rabbiObject.html())
+      $("ol").append(rabbiObject.html(isAdmin))
       $('form').trigger('reset')
     })//done
   })//on
@@ -26,6 +27,15 @@ function Rabbi(id, first_name, last_name, charisma_level) {
   this.charisma_level = charisma_level
 }
 
-Rabbi.prototype.html = function() {
+Rabbi.prototype.html = function(isAdmin) {
+  if (isAdmin) {
+    return (`
+      <li>
+        <a href='/rabbis/${this.id}'>
+          Rabbi ${this.first_name} ${this.last_name}
+        </a> Charisma Level: ${this.charisma_level}
+      </li>
+    `);
+  }
   return  `<li><a href='/rabbis/${this.id}'> Rabbi ${this.first_name} ${this.last_name} </a> Charisma Level: ${this.charisma_level} </li>`
 }

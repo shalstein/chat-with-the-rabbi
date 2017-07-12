@@ -26,7 +26,7 @@ class RabbisController < ApplicationController
     if @rabbi.save
       respond_to do |response|
         response.html {redirect_to rabbi_path(@rabbi)}
-        response.json {render json: @rabbi}
+        response.json {render json: { rabbi: @rabbi, isAdmin: current_user.admin? }}
       end
     else
       respond_to do |response|
