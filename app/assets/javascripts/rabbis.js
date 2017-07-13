@@ -1,4 +1,7 @@
 $(function() {
+
+  deleteRabbiListner()
+
   $("#new_rabbi").on('submit', function(event) {
     event.preventDefault()
     var rabbiObject = {rabbi: {first_name: $('#rabbi_first_name').val(), last_name: $('#rabbi_last_name').val(), dob: $('#rabbi_dob').val(), branch_of_judaism: $('#rabbi_branch_of_judaism').val(), charisma_level: $('#rabbi_charisma_level').val()}}
@@ -8,17 +11,36 @@ $(function() {
       data: JSON.stringify(rabbiObject),
       dataType: "json",
       contentType: "application/json"
-    })//ajax
+    })
     .done(function(json) {
       const { rabbi, isAdmin } = json;
       var rabbiObject = new Rabbi(rabbi.id, rabbi.first_name, rabbi.last_name, rabbi.charisma_level )
       $("ol").append(rabbiObject.html(isAdmin))
       $('form').trigger('reset')
-    })//done
-  })//on
+      deleteRabbiListner()
+    })
+  })
+})
+
+const deleteRabbiListner = () => {
+  $('.delete-rabbi').on('click', (event) => {
+    var rabbiId = event.target.dataset.rabbiId
+    $.ajax({
+      method: 'DELETE',
+      url: '/rabbis/' + rabbiId,
+      dataType: "json",
+      contentType: "application/json"
+    })
+    .done(function(response) {
+      if (response) {
+        $(`button[data-rabbi-id='${response.rabbi_id}']`).parents('.rabbi').empty()
+      }
+    })
+
+    })
+  }
 
 
-})//doc ready
 
 function Rabbi(id, first_name, last_name, charisma_level) {
   this.id = id
@@ -30,12 +52,31 @@ function Rabbi(id, first_name, last_name, charisma_level) {
 Rabbi.prototype.html = function(isAdmin) {
   if (isAdmin) {
     return (`
+      <div class="rabbi">
+      <p></p>
+        <li>
+          <a href='/rabbis/${this.id}'>
+            Rabbi ${this.first_name} ${this.last_name}
+          </a> Charisma Level: ${this.charisma_level}
+          <br> <button data-rabbi-id="${this.id}" class='delete-rabbi' type="button">Delete</button>
+        </li>
+        <p></p>
+      </div>
+    `);
+  }
+  else {
+
+  return ( `
+    <div class="rabbi">
+    <p></p>
       <li>
         <a href='/rabbis/${this.id}'>
           Rabbi ${this.first_name} ${this.last_name}
         </a> Charisma Level: ${this.charisma_level}
       </li>
-    `);
+      <p></p>
+    </div>
+      `)
+
   }
-  return  `<li><a href='/rabbis/${this.id}'> Rabbi ${this.first_name} ${this.last_name} </a> Charisma Level: ${this.charisma_level} </li>`
 }
