@@ -26,7 +26,7 @@ class RabbisController < ApplicationController
     if @rabbi.save
       respond_to do |response|
         response.html {redirect_to rabbi_path(@rabbi)}
-        response.json {render json: @rabbi}
+        response.json {render json: { rabbi: @rabbi, isAdmin: current_user.admin? }}
       end
     else
       respond_to do |response|
@@ -54,8 +54,10 @@ class RabbisController < ApplicationController
 
   def destroy
     @rabbi = Rabbi.find(params[:id])
-    @rabbi.destroy
-    redirect_to rabbis_path, alert: "Sucssefully delteted Rabbi."
+    @rabbi.destroy!
+    render json: {status: 201, rabbi_id: @rabbi.id}
+
+    #redirect_to rabbis_path, alert: "Sucssefully delteted Rabbi."
   end
 
   private
