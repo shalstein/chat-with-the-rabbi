@@ -55,7 +55,7 @@ class RabbisController < ApplicationController
   def destroy
     @rabbi = Rabbi.find(params[:id])
     @rabbi.destroy!
-    render json: {rabbi_id: @rabbi.id}
+    render json: {status: 201, rabbi_id: @rabbi.id}
 
     #redirect_to rabbis_path, alert: "Sucssefully delteted Rabbi."
   end

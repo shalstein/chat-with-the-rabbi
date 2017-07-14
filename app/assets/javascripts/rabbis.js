@@ -1,6 +1,7 @@
 $(function() {
 
-  deleteRabbiListner()
+  deleteRabbiListner($('.delete-rabbi'))
+
 
   $("#new_rabbi").on('submit', function(event) {
     event.preventDefault()
@@ -17,22 +18,20 @@ $(function() {
       var rabbiObject = new Rabbi(rabbi.id, rabbi.first_name, rabbi.last_name, rabbi.charisma_level )
       $("ol").append(rabbiObject.html(isAdmin))
       $('form').trigger('reset')
-      deleteRabbiListner()
+      deleteRabbiListner($(`button[data-rabbi-id='${rabbi.id}']`))
     })
   })
 })
 
-const deleteRabbiListner = () => {
-  $('.delete-rabbi').on('click', (event) => {
+var deleteRabbiListner = jquery => {
+  jquery.on('click', event => {
     var rabbiId = event.target.dataset.rabbiId
     $.ajax({
       method: 'DELETE',
       url: '/rabbis/' + rabbiId,
-      dataType: "json",
-      contentType: "application/json"
     })
     .done(function(response) {
-      if (response) {
+      if (response.status === 201) {
         $(`button[data-rabbi-id='${response.rabbi_id}']`).parents('.rabbi').empty()
       }
     })
@@ -64,8 +63,6 @@ Rabbi.prototype.html = function(isAdmin) {
       </div>
     `);
   }
-  else {
-
   return ( `
     <div class="rabbi">
     <p></p>
@@ -77,6 +74,4 @@ Rabbi.prototype.html = function(isAdmin) {
       <p></p>
     </div>
       `)
-
-  }
 }
