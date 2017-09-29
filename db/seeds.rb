@@ -9,7 +9,7 @@ rab2 = Rabbi.create(first_name: "Olivia", last_name: "Oliver"   , branch_of_juda
 
 user1 = User.create(name: "tyler albertson", email: "tyeler@example.com",        password: "password")
 
-admin = User.create(name: "admin", email: "admin@example.com", password: "password", role: 1)
+admin = User.create(name: "admin", email: "admin@admin.com", password: "admin", role: 1)
 
 user4 = User.create(name: "Rachel Toads", email: "rachel@example.com",    password: "password")
 
