@@ -1,3 +1,4 @@
+
 $(function() {
 
   deleteRabbiListner($('.delete-rabbi'))
@@ -14,11 +15,13 @@ $(function() {
       contentType: "application/json"
     })
     .done(function(json) {
-      const { rabbi, isAdmin } = json;
+      const { rabbi, isAdmin } = json; //#uglifier does not like this syntax
+      //const rabbi = json.rabbi
+      //const isAdmin =json.isAdmin
       var rabbiObject = new Rabbi(rabbi.id, rabbi.first_name, rabbi.last_name, rabbi.charisma_level )
       $("ol").append(rabbiObject.html(isAdmin))
       $('form').trigger('reset')
-      deleteRabbiListner($(`button[data-rabbi-id='${rabbi.id}']`))
+      deleteRabbiListner($("button[data-rabbi-id=" + rabbi.id + "]"))
     })
   })
 })
