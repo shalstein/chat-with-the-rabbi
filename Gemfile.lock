@@ -51,6 +51,7 @@ GEM
     cancancan (2.0.0)
     case_transform (0.2)
       activesupport
+    closure-compiler (1.1.13)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -210,6 +211,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   byebug
   cancancan
+  closure-compiler
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
