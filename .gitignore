@@ -22,6 +22,8 @@
 
 #ignore secret .env files
 .env
+.env.production
+
 
 #ignore my todo notes
 todo.md
