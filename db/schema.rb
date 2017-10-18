@@ -19,9 +19,8 @@ ActiveRecord::Schema.define(version: 20170326162012) do
     t.integer  "rabbi_id"
     t.integer  "user_id"
     t.integer  "service_id"
-    t.integer  "cost",          default: 0
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.datetime "time_and_date"
     t.index ["rabbi_id"], name: "index_appointments_on_rabbi_id", using: :btree
     t.index ["service_id"], name: "index_appointments_on_service_id", using: :btree
@@ -60,7 +59,6 @@ ActiveRecord::Schema.define(version: 20170326162012) do
     t.string   "last_sign_in_ip"
     t.string   "name"
     t.string   "provider"
-    t.integer  "wallet",                 default: 0
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "role",                   default: 0
