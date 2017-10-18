@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:google]
 
@@ -8,8 +7,7 @@ class User < ApplicationRecord
   has_many :appointments
   enum role: [:normal, :admin]
 
-  validates :name, :wallet, presence: true
-  validates :wallet, numericality: { only_integer: true}
+  validates :name, presence: true
 
   def serializer_fields_for_index
     "attributes :name"

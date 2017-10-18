@@ -21,11 +21,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = @user.appointments.build(appointment_params)
     if @appointment.save
-      if @appointment.charge
         redirect_to user_appointment_path(@user, @appointment)
-      else
-        redirect_to edit_user_money_path(@user), alert: "You don't have enough money for this appointment!"
-      end
     else
       render :new
     end
@@ -45,7 +41,6 @@ class AppointmentsController < ApplicationController
 
 
     if @appointment.update(appointment_params)
-      @appointment.adjust_charges
       redirect_to user_appointment_path(@user, @appointment)
     else
       render "edit"
@@ -56,7 +51,6 @@ class AppointmentsController < ApplicationController
   def destroy
     @appointment = @user.appointments.find(params[:id])
     @appointment.destroy
-    @appointment.refund
 
     redirect_to user_appointments_path(@user)
 

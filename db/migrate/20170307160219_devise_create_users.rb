@@ -32,7 +32,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
 
       t.string :name
       t.string :provider
-      t.integer :wallet, default: 0
 
 
       t.timestamps null: false

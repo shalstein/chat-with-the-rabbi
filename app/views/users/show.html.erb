@@ -1,11 +1,6 @@
 <h1> Welcome <%= @user.name %>!</h1>
 
 
-<% if @user.wallet > 0 %>
-  <p>You have <%= number_to_currency(@user.wallet)%> in your wallet</p>
-<% else %>
-  <p>You are broke! <%= link_to 'Add  money to your account', edit_user_money_path(@user) %> to add more money. </p>
-  <% end %>
 <% if @user.rabbis.any? %>
   <p>You have <%=pluralize(@user.rabbis.count, 'Rabbi') %>.</p>
 <% else %>
@@ -17,9 +12,7 @@
   <%= link_to "Edit your profile", edit_user_registration_path if !current_user.provider %>
 </div>
 
-<div class="link">
-  <%= link_to "Add more money to your account", edit_user_money_path(@user) %>
-</div>
+
 
 <% if current_user.admin? %>
     <p><article><a href="#" id="users">List Users</a> </article></p>
@@ -28,7 +21,7 @@
     </div>
     <script id='user-template' type="text/x-handlebars-template" >
 
-    <ul> <h4>User id: {{id}} - {{email}} - Wallet: ${{wallet}}.00 - Role: {{role}} </h4>
+    <ul> <h4>User id: {{id}} - {{email}} - Role: {{role}} </h4>
       <h4>{{name}}'s Appointments </h4>
       <ol>
         {{#each this.appointments}}
