@@ -1,4 +1,8 @@
+require 'sidekiq/web'
+
+
 Rails.application.routes.draw do
+
 
   devise_for :users, path: '', :path_names => { sign_in: '/', sign_out: 'sign_out'}, :controllers => { :registrations => :registrations, :omniauth_callbacks => "omniauth_callbacks" }, skip: :registrations
     as :user do
@@ -24,6 +28,8 @@ Rails.application.routes.draw do
 
 
   resources :rabbis
+
+  mount Sidekiq::Web => '/sidekiq'
 
 
 end
