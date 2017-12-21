@@ -14,4 +14,7 @@
 //= require jquery_ujs
 
 //= require handlebars-v4.0.10
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
 //= require_tree .

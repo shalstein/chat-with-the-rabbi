@@ -14,38 +14,39 @@
     </div>
   <% end %>
 
-<%= form_for [@user, @appointment]  do |f| %>
+<%= form_for [@user, @appointment] do |f| %>
   <%= f.fields_for :rabbi, @rabbi do |r| %>
 
-      <div class="field">
+      <div class="field form-group">
         <label>Enter a Rabbi</label><br>
-        <%= r.text_field :first_name, placeholder: "First name" %>
-      </div><br>
-      <div class="field">
-        <%= r.text_field :last_name, placeholder: "Last Name" %>
+        <%= r.text_field :first_name, placeholder: "First name", class: 'form-control-sm'  %>
+      </div>
+      <br>
+      <div class="field form-group">
+        <%= r.text_field :last_name, placeholder: "Last Name", class: 'form-control-sm' %>
       </div><br>
     <% end %>
 
-<div class="field">
+<div class="field form-group">
   <label for="service_id">Purpose?</label>
-  <%= f.collection_select(:service_id, Service.all ,:id, :name, {:prompt => 'Select a purpose'} ) %><br><br>
+  <%= f.collection_select(:service_id, Service.all ,:id, :name, {:prompt => 'Select a purpose'}, class: 'form-control-sm' ) %><br><br>
 </div>
 
 
 
-<div class="field">
+<div class="field form-group">
   <%= f.label :time_and_date, "Date:"  %>
-  <%= f.date_select :time_and_date, prompt: true, start_year: Date.current.year, end_year: Date.current.year + 1, order: [:day, :month, :year]%>
+  <%= f.date_select :time_and_date, {prompt: true, start_year: Date.current.year, end_year: Date.current.year + 1, order: [:day, :month, :year]}, {class: 'form-control-sm'} %>
 </div><br>
 
-<div class="field">
+<div class="field form-group">
   <%= f.label :time_and_date, "Time:"  %>
-  <%= f.time_select :time_and_date, ampm: true , :ignore_date => true, minute_step: 15, prompt: true %>
+  <%= f.time_select :time_and_date, {ampm: true , :ignore_date => true, minute_step: 15, prompt: true }, {class: 'form-control-sm'}%>
 </div><br>
 
 
-<div class="action">
-  <%=f.submit %>
+<div class="action form-group">
+  <%=f.submit nil, class: 'btn btn-primary' %>
 </div>
 
 

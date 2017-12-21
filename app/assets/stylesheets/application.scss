@@ -10,10 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
  */
 
+ @import "bootstrap";
+
+ .center {
+ }
+
+/*
  body {
    background-color: #fff;
    color: #333;
@@ -32,9 +37,9 @@
    background-color: #eee;
    padding: 10px;
    font-size: 11px;
- }
+ }*/
 
- a {
+ /*a {
    color: #000;
    &:visited {
      color: #666;
@@ -50,6 +55,7 @@
      margin-bottom: 10px;
    }
  }
+*/
 
  #notice {
    color: green;
@@ -68,7 +74,9 @@
    padding-bottom: 0;
    margin-bottom: 20px;
    background-color: #f0f0f0;
-   h2 {
+ }
+
+/*h2 {
      text-align: left;
      font-weight: bold;
      padding: 5px 5px 5px 15px;
@@ -77,9 +85,11 @@
      margin-bottom: 0px;
      background-color: #c00;
      color: #fff;
-   }
-   ul li {
+   }*/
+
+   /*ul li {
      font-size: 12px;
      list-style: square;
    }
  }
+ */
