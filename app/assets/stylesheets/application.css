@@ -45,12 +45,12 @@
    }
  }
 
- div {
+ /*div {
    &.field, &.actions {
      margin-bottom: 10px;
    }
  }
-
+*/
  #notice {
    color: green;
  }
@@ -82,4 +82,28 @@
      font-size: 12px;
      list-style: square;
    }
+ }
+
+ #chat-messages {
+   background-color: #e6a3a9;
+   min-height: 100px;
+   margin-bottom: 15px;
+   width: 300px;
+   width: auto;
+
+ }
+
+ #chat-console {
+   background-color: #a9e6a3;
+   width: 350px;
+   padding: 10px;
+
+
+ }
+
+ #chat-input {
+   width: 84%;
+ }
+
+ #chat-submit {
  }

@@ -19,6 +19,20 @@
     <div id="user-info">
 
     </div>
+
+    <div id='chat-console' >
+      <div  id="chat-messages">
+
+
+      </div>
+      <%= text_field_tag 'chat-input' %>
+      <%= submit_tag 'Send', id: 'chat-submit' %>
+
+    </div>
+
+
+
+
     <script id='user-template' type="text/x-handlebars-template" >
 
     <ul> <h4>User id: {{id}} - {{email}} - Role: {{role}} </h4>
