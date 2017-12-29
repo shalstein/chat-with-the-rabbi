@@ -84,19 +84,24 @@
    }
  }
 
+
  #chat-messages {
    background-color: #e6a3a9;
-   min-height: 100px;
+   height: 100px;
    margin-bottom: 15px;
    width: 300px;
    width: auto;
+   overflow: scroll;
+   overflow-wrap: break-word;
 
  }
 
  #chat-console {
    background-color: #a9e6a3;
+
    width: 350px;
    padding: 10px;
+
 
 
  }

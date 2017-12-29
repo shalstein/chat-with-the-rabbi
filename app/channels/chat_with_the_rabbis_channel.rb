@@ -12,9 +12,6 @@ class ChatWithTheRabbisChannel < ApplicationCable::Channel
   #  stop all streams
   end
 
-  def test
-    ActionCable.server.broadcast('ChatWithTheRabbis', message:  'hellodw o world!')
-  end
 
   def sendMessage(message)
     ActionCable.server.broadcast('ChatWithTheRabbis', message)
