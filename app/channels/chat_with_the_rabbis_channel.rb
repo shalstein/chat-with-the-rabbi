@@ -2,6 +2,9 @@ class ChatWithTheRabbisChannel < ApplicationCable::Channel
   def subscribed
     # stream_from "some_channel"
     stream_from 'ChatWithTheRabbis'
+  #  stream_from 'Chatneat'
+
+
 
   end
 
@@ -9,7 +12,7 @@ class ChatWithTheRabbisChannel < ApplicationCable::Channel
 
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
-  #  stop all streams
+    stop_all_streams
   end
 
 
