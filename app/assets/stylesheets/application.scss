@@ -50,13 +50,16 @@
    }
  }
 
- div {
+ /*div {
    &.field, &.actions {
      margin-bottom: 10px;
    }
  }
 */
+<<<<<<< HEAD:app/assets/stylesheets/application.scss
 
+=======
+>>>>>>> AddActionCable:app/assets/stylesheets/application.css
  #notice {
    color: green;
  }
@@ -92,4 +95,36 @@
      list-style: square;
    }
  }
+<<<<<<< HEAD:app/assets/stylesheets/application.scss
  */
+=======
+
+
+ #chat-messages {
+   background-color: #e6a3a9;
+   height: 100px;
+   margin-bottom: 15px;
+   width: 300px;
+   width: auto;
+   overflow: scroll;
+   overflow-wrap: break-word;
+
+ }
+
+ #chat-console {
+   background-color: #a9e6a3;
+
+   width: 350px;
+   padding: 10px;
+
+
+
+ }
+
+ #chat-input {
+   width: 84%;
+ }
+
+ #chat-submit {
+ }
+>>>>>>> AddActionCable:app/assets/stylesheets/application.css

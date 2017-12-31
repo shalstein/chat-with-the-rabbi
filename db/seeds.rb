@@ -15,17 +15,11 @@ user4 = User.create(name: "Rachel Toads", email: "rachel@example.com",    passwo
 
 user2 = User.create(name: "joe Toads", email: "joe@example.com",        password: "password")
 
-ser1 = Service.create(name: "Marrige Cermony", fee: 675)
 
-ser2 = Service.create(name: "Counseling session", fee: 955)
 
 ser3 = Service.create(name: "Business Advice", fee: 877)
 
-ser4 = Service.create(name: "Divorce", fee: 545)
-
-ser5 = Service.create(name: "Funeral", fee: 444)
-
-ser6 = Service.create(name: "Coffee at Starbucks", fee: 250)
+ser6 = Service.create(name: "Coffee Meetup", fee: 250)
 
 
 
