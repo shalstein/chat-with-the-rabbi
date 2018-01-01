@@ -20,11 +20,11 @@ App.chat_with_the_rabbis = App.cable.subscriptions.create("ChatWithTheRabbisChan
   },
 
   appendToChatConsole: function(data) {
-      $('#chat-messages').append(`<div>${data.message}</div>`)
+      $('#chat-messages').append(`<div>${data.content}</div>`)
   },
 
   sendChat: function() {
-    this.perform('sendMessage', {message: $('#chat-input').val()})
+    this.perform('sendMessage', {content: $('#chat-input').val()})
     $('#chat-input').val('')
 
   }

@@ -11,6 +11,7 @@ class ChatWithTheRabbisChannel < ApplicationCable::Channel
 
 
   def sendMessage(message)
+    CreateChatMessageJob.perform_later(content: message)
     ActionCable.server.broadcast('ChatWithTheRabbis', message)
   end
 end
