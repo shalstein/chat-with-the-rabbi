@@ -19,8 +19,8 @@ App.chat_with_the_rabbis = App.cable.subscriptions.create("ChatWithTheRabbisChan
     this.appendToChatConsole(data)
   },
 
-  appendToChatConsole: function(data) {
-      $('#chat-messages').append(`<div>${data.content}</div>`)
+  appendToChatConsole: function(message) {
+      $('#chat-messages').append(`<span>${message.username}</span>: <span>${message.content}</span><br/>`)
   },
 
   sendChat: function() {

@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize! :read, @user
     @appointments = @user.appointments
+    @chat_messages = ChatMessage.all
 
     respond_to do |response|
       response.html {render :show}
