@@ -45,4 +45,10 @@ $(function() {
 Handlebars.registerHelper("formatedTime", function() {
   return new Date(this.time_and_date)
 })//helper
+
+
+const chatConsole = $('#chat-console')
+chatConsole.draggable()
+
+
 })//document ready

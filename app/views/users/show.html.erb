@@ -25,7 +25,7 @@
 <% end %>
 
 <div id='chat-console' >
-  <h3>Chat with the Rabbis</h3>
+  <h3 id="chat-console-header">Chat with the Rabbis</h3>
   <div  id="chat-messages">
   <%=render partial: "message", collection: @chat_messages %>
 
@@ -33,7 +33,7 @@
   <%= text_field_tag 'chat-input' %>
   <%= submit_tag 'Send', id: 'chat-submit' %>
 
-</div>
+  </div>
 </div>
 
 

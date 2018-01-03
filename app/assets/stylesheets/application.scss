@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require jquery-ui/draggable
 
  */
 
@@ -103,8 +104,6 @@
    background-color: #ff9604;
    height: 200px;
    margin-bottom: 15px;
-   width: 300px;
-   width: auto;
    overflow: scroll;
    overflow-wrap: break-word;
 
@@ -112,16 +111,17 @@
 
  #chat-console {
    background-color: #ffd504;
-
-   width: 350px;
+   display: inline-block;
    padding: 10px;
-
 
 
  }
 
+ #chat-console-header {
+   display: inline-block;
+ }
  #chat-input {
-   width: 82%;
+   width: 250px;
  }
 
  #chat-submit {

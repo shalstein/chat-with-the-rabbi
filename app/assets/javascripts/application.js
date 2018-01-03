@@ -15,6 +15,7 @@
 
 //= require handlebars-v4.0.10
 //= require jquery3
+//= require jquery-ui/widgets/draggable
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
