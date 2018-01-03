@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1> Welcome <%= @user.name %>!</h1>
 
 
@@ -23,6 +25,7 @@
 <% end %>
 
 <div id='chat-console' >
+  <h3>Chat with the Rabbis</h3>
   <div  id="chat-messages">
   <%=render partial: "message", collection: @chat_messages %>
 
@@ -31,6 +34,8 @@
   <%= submit_tag 'Send', id: 'chat-submit' %>
 
 </div>
+</div>
+
 
 <script id='user-template' type="text/x-handlebars-template" >
 

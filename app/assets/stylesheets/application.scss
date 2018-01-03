@@ -15,7 +15,10 @@
 
  @import "bootstrap";
 
- .center {
+
+ body {
+   background-color:  #cbe5ff;
+
  }
 
 /*
@@ -97,8 +100,8 @@
 
 
  #chat-messages {
-   background-color: #e6a3a9;
-   height: 100px;
+   background-color: #ff9604;
+   height: 200px;
    margin-bottom: 15px;
    width: 300px;
    width: auto;
@@ -108,7 +111,7 @@
  }
 
  #chat-console {
-   background-color: #a9e6a3;
+   background-color: #ffd504;
 
    width: 350px;
    padding: 10px;
@@ -118,7 +121,7 @@
  }
 
  #chat-input {
-   width: 84%;
+   width: 82%;
  }
 
  #chat-submit {

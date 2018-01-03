@@ -8,4 +8,4 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:63256896b672437701e5aa53e59b0dbe@soldierfish.redistogo.com:9942/
