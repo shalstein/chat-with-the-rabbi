@@ -17,7 +17,8 @@
  @import "bootstrap";
 
 
- body {
+ body, html {
+   height: 100%;
    background-color:  #cbe5ff;
 
  }

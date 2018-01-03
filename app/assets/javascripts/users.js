@@ -48,7 +48,7 @@ Handlebars.registerHelper("formatedTime", function() {
 
 
 const chatConsole = $('#chat-console')
-chatConsole.draggable()
+chatConsole.draggable({ containment: "body", scroll: false });
 
 
 })//document ready
