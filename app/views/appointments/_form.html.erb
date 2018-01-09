@@ -14,7 +14,8 @@
   <% end %>
   <div name='form-wrapper' class="w-25 mx-auto">
 
-  <%= form_for [@user, @appointment] do |f| %>
+<div class="signin-form">
+    <%= form_for [@user, @appointment] do |f| %>
     <%= f.fields_for :rabbi, @rabbi do |r| %>
 
         <div class="field form-group">
@@ -52,4 +53,5 @@
 
 
   <%end %>
+ </div>
 </div>
