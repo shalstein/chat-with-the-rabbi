@@ -12,9 +12,10 @@
       </ul>
     </div>
   <% end %>
-  <div name='form-wrapper' class="w-25 mx-auto">
+  <div name='form-wrapper' class="w-25 px-5 py-1  mx-auto bg-secondary rounded">
 
 <div class="signin-form">
+  <h3 class="text-center p-4 "> <%= heading %> </h3>
     <%= form_for [@user, @appointment] do |f| %>
     <%= f.fields_for :rabbi, @rabbi do |r| %>
 
@@ -27,19 +28,16 @@
       <% end %>
 
   <div class="field form-group">
-    <label for="service_id">Purpose?</label>
     <%= f.collection_select(:service_id, Service.all ,:id, :name, {:prompt => 'Select a purpose'}, class: 'form-control-sm' ) %>
   </div>
 
 
 
   <div class="field form-group">
-    <%= f.label :time_and_date, "Date:"  %>
     <%= f.date_select :time_and_date, {prompt: true, start_year: Date.current.year, end_year: Date.current.year + 1, order: [:day, :month, :year]}, {class: 'form-control-sm'} %>
   </div>
 
   <div class="field form-group">
-    <%= f.label :time_and_date, "Time:"  %>
     <%= f.time_select :time_and_date, {ampm: true , :ignore_date => true, minute_step: 15, prompt: true }, {class: 'form-control-sm'}%>
   </div>
 
