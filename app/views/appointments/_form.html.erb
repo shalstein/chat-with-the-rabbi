@@ -1,9 +1,15 @@
 
 
 
+
+  <div name='form-wrapper' class="w-25 px-5 py-1  mx-auto bg-info rounded">
+
+<div class="signin-form">
+  <h3 class="text-center p-4 text-white "> <%= heading %> </h3>
+
   <% if @appointment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+      <h4><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h4>
 
       <ul>
       <% @appointment.errors.full_messages.each do |msg| %>
@@ -12,10 +18,9 @@
       </ul>
     </div>
   <% end %>
-  <div name='form-wrapper' class="w-25 px-5 py-1  mx-auto bg-secondary rounded">
 
-<div class="signin-form">
-  <h3 class="text-center p-4 "> <%= heading %> </h3>
+
+
     <%= form_for [@user, @appointment] do |f| %>
     <%= f.fields_for :rabbi, @rabbi do |r| %>
 
