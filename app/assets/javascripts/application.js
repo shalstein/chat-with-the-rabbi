@@ -9,12 +9,11 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
 //= require jquery
 //= require jquery_ujs
-
 //= require handlebars-v4.0.10
-//= require jquery-ui/widgets/draggable
 //= require popper
 //= require bootstrap-sprockets
+//= require jquery-ui/widgets/draggable
+
 //= require_tree .
