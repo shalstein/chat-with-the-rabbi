@@ -53,6 +53,7 @@ class RabbisController < ApplicationController
 
 
   def destroy
+
     @rabbi = Rabbi.find(params[:id])
     @rabbi.destroy!
     render json: {status: 201, rabbi_id: @rabbi.id}
