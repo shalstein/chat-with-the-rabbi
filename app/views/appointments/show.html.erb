@@ -1,12 +1,14 @@
-<h2>Appointment Summary</h2>
 
-<p>Rabbi: <%= link_to "#{@appointment.rabbi.first_name} #{@appointment.rabbi.last_name}", rabbi_path(@appointment.rabbi) %></p>
-<p>Time: <%= @appointment.time_and_date.strftime("%I:%M %p") %></p>
-<p>Date: <%= @appointment.time_and_date.strftime("%A, %B %d, %Y") %></p>
-<p>Reason: <%= @appointment.service.name %></p>
-<p>For: <%= @user.name %></p>
+<div class="w-50 p-4 m-auto bg-light rounded">
+  <h2>Appointment Summary</h2>
+  <p>Rabbi: <%= link_to "#{@appointment.rabbi.first_name} #{@appointment.rabbi.last_name}", rabbi_path(@appointment.rabbi) %></p>
+  <p>Time: <%= @appointment.time_and_date.strftime("%I:%M %p") %></p>
+  <p>Date: <%= @appointment.time_and_date.strftime("%A, %B %d, %Y") %></p>
+  <p>Reason: <%= @appointment.service.name %></p>
+  <p>For: <%= @user.name %></p>
 
 
-<%= link_to "Edit Appointment", edit_user_appointment_path(@appointment.user, @appointment) %>
-<br><br>
-<%= button_to "Cancel Appointment" , {action: "destroy"}, method: :delete   %>
+  <%= button_to "Cancel Appointment" , {action: "destroy"}, method: :delete, class: "btn btn-danger ", form_class: "d-inline pr-1"   %>
+  <%= button_to "Edit Appointment" ,edit_user_appointment_path(@appointment.user, @appointment), method: :get, class: "btn btn-success", form_class: "d-inline pl-1"   %>
+
+</div>
