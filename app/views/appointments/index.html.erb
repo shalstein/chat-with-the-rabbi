@@ -1,12 +1,20 @@
 
 
 <% if @appointments.blank? %>
-  <p>You don't have any upcoming appointments yet. <%= link_to "Make an appointment", new_user_appointment_path(@user)%> with your rabbi now! </p>
+<div class="w-50 bg-light m-auto p-3 rounded text-center">
+  <p class="m-0">You don't have any upcoming appointments yet. <strong><%= link_to "Make an appointment", new_user_appointment_path(@user)%></strong> with your rabbi now!</p>
+</div>
+
   <% else %>
-  <h2><%=@user.name%>'s Future Appointments</h2>
+  <h2 class="display-4 w-50 m-auto text-center"><%=@user.name%>'s Future Appointments</h2>
     <% @appointments.each do |appointment| %>
-    <div class="appointment">
-      <p> <%= link_to "Date: #{appointment.time_and_date.strftime("%A, %B %y")}, Time: #{appointment.time_and_date.strftime("%I:%M %p")}, Service: #{appointment.service.name}", user_appointment_path(appointment.user, appointment)%></p>
+    <div class="appointment mx-auto my-3 w-50 bg-light p-3 rounded">
+
+
+      <p>Date: <%=appointment.time_and_date.strftime("%A, %B %y")%></p>
+      <p>Time: <%=appointment.time_and_date.strftime("%I:%M %p")%></p>
+      <p>Service: <%=appointment.service.name%></p>
+      <%= link_to "View Summary", user_appointment_path(appointment.user, appointment), class: 'btn btn-success'%>
     </div>
     <% end %>
   <% end %>
