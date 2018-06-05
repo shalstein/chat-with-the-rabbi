@@ -1,18 +1,20 @@
-<h1>Find a Rabbi</h1>
+<div id='rabbi-index'>
+  <h1>Find a Rabbi</h1>
 
 
 
   <ol>
     <% @rabbis.each do |rabbi| %>
-      <div class="rabbi">
+      <div id class="rabbi">
         <p><li><%= link_to "Rabbi #{rabbi.first_name} #{rabbi.last_name}", rabbi_path(rabbi)%> Charisma Level: <%= rabbi.charisma_level%> <br> <%= button_tag "Delete", class: 'delete-rabbi', type: 'button', "data-rabbi-id": rabbi.id if current_user.admin?  %>
-</li></p>
-      </div>
+          </li></p>
+        </div>
       <% end %>
     </ol>
 
 
-<h3>Missing your Rabbi??</h3>
-<h3>Add one here:</h3>
+  <h3>Missing your Rabbi??</h3>
+  <h3>Add one here:</h3>
 
-<%= render 'form' %>
+   <%= render 'form' %>
+</div>
