@@ -20,21 +20,23 @@ user2 = User.create(name: "joe Toads", email: "joe@example.com",        password
 ser3 = Service.create(name: "Business Advice", fee: 877)
 
 ser6 = Service.create(name: "Coffee Meetup", fee: 250)
+ser1 = Service.create(name: "Lecture on your favorite topic", fee: 330)
+
+ser2 = Service.create(name: "Koshering the Kitchen", fee: 180)
+
+DateTime.parse("2018-09-03 04:30").strftime("%H%M").to_i
 
 
+Appointment.new(rabbi_id: rab2.id, user_id: user2.id, service_id: ser1.id, time_and_date: "2018-09-03 11:30")
+
+Appointment.create(rabbi_id: rab2.id, user_id: user2.id, service_id: ser1.id, time_and_date: "2018-09-03 10:00")
+
+Appointment.create(rabbi_id: rab2.id, user_id: user1.id, service_id: ser2.id, time_and_date: "2018-05-01 13:00")
 
 
+Appointment.create(rabbi_id: rab1.id, user_id: user1.id, service_id: ser2.id, time_and_date: "2018-07-02 09:45")
+
+Appointment.create(rabbi_id: rab2.id, user_id: user2.id, service_id: ser2.id, time_and_date: "2018-05-01 08:45")
 
 
-
-Appointment.create(rabbi_id: rab2.id, user_id: user2.id, service_id: ser1.id, time_and_date: "2018-09-03 04:30")
-
-Appointment.create(rabbi_id: rab2.id, user_id: user1.id, service_id: ser2.id, time_and_date: "2018-05-01 07:15")
-
-
-Appointment.create(rabbi_id: rab1.id, user_id: user1.id, service_id: ser2.id, time_and_date: "2018-07-02 02:45")
-
-Appointment.create(rabbi_id: rab2.id, user_id: user2.id, service_id: ser2.id, time_and_date: "2018-05-01 07:15")
-
-
-Appointment.create(rabbi_id: rab1.id, user_id: user2.id, service_id: ser2.id, time_and_date: "2018-07-02 02:45")
+Appointment.create(rabbi_id: rab1.id, user_id: user2.id, service_id: ser2.id, time_and_date: "2018-07-02 13:45")

@@ -32,7 +32,7 @@ class Appointment < ApplicationRecord
   end
 
   def during_regular_hours
-    errors.add(:time_and_date, "not during regular hours") unless time_and_date && time_and_date.strftime("%H%M").to_i >= 830 && time_and_date.strftime("%H%M").to_i <= 1830
+    errors.add(:time_and_date, "Not between hours 8:30 AM - 6:30 PM") unless time_and_date && time_and_date.strftime("%H%M").to_i >= 830 && time_and_date.strftime("%H%M").to_i <= 1830
   end
 
   def not_on_saturday
