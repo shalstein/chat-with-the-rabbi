@@ -21,8 +21,6 @@ Rails.application.routes.draw do
     resources :appointments
   end
 
-  get 'users/:user_id/money', to: 'users#edit_wallet', as: :edit_user_money
-  patch 'users/:user_id/money', to: 'users#update_wallet', as: :update_user_money
   get "/users", to: 'users#index'
 
 
