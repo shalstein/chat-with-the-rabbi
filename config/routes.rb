@@ -26,7 +26,6 @@ Rails.application.routes.draw do
 
   resources :rabbis
 
-#  mount Sidekiq::Web => '/sidekiq'
   mount ActionCable.server, at: '/cable'
 
 
