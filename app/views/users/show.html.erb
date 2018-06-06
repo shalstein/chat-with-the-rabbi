@@ -1,41 +1,43 @@
 <div class="container">
 
-<h1> Welcome <%= @user.name %>!</h1>
+  <h1> Welcome <%= @user.name %>!</h1>
 
 
-<% if @user.rabbis.any? %>
-  <p>You have <%=pluralize(@user.rabbis.count, 'Rabbi') %>.</p>
-<% else %>
-  <p>You don't have any Rabbi's yet. <%= link_to "Make an appointment",  new_user_appointment_path(@user)%> to get one.</p>
-<% end %>
+  <% if @user.rabbis.any? %>
+    <p>You have <%=pluralize(@user.rabbis.count, 'Rabbi') %>.</p>
+  <% else %>
+    <p>You don't have any Rabbi's yet. <%= link_to "Make an appointment",  new_user_appointment_path(@user)%> to get one.</p>
+  <% end %>
 
 
-<div class="link">
-  <%= link_to "Edit your profile", edit_user_registration_path if !current_user.provider %>
+  <div class="link">
+    <%= link_to "Edit your profile", edit_user_registration_path if !current_user.provider %>
+  </div>
+
+
+
+  <% if current_user.admin? %>
+      <p><article><a href="#" id="users">List Users</a> </article></p>
+      <div id="user-info">
+
+      </div>
+
+  <% end %>
+
+
 </div>
-
-
-
-<% if current_user.admin? %>
-    <p><article><a href="#" id="users">List Users</a> </article></p>
-    <div id="user-info">
+<div id='chat-wrapper'>
+  <div id='chat-console' >
+    <h3 id="chat-console-header">Chat with the Rabbis</h3>
+    <div  id="chat-messages">
+    <%=render partial: "message", collection: @chat_messages %>
 
     </div>
-
-<% end %>
-
-<div id='chat-console' >
-  <h3 id="chat-console-header">Chat with the Rabbis</h3>
-  <div  id="chat-messages">
-  <%=render partial: "message", collection: @chat_messages %>
-
-  </div>
-  <%= text_field_tag 'chat-input' %>
-  <%= submit_tag 'Send', id: 'chat-submit' %>
+    <%= text_field_tag 'chat-input' %>
+    <%= submit_tag 'Send', id: 'chat-submit' %>
 
   </div>
 </div>
-
 
 <script id='user-template' type="text/x-handlebars-template" >
 

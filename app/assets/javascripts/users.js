@@ -10,13 +10,13 @@ $(function() {
     var html = template(user)
 
     $(`ul a[data-id='${user.id}']`).after(html)
-  }//addUserInfo function
+  }
 
   function usersHtml(users) {
     var users_string = ""
     users.forEach(function(user) {
       users_string += ` <ul> <h3> <a href='#' class='user' data-id='${user.id}'>  ${user.name} </a> </h3> </ul>`
-    }) //forEach and function
+    })
 
     $('article').after(users_string)
     $('.user').one('click', function(event) {
@@ -27,10 +27,10 @@ $(function() {
 
         addUserInfo(user)
 
-      })//done function
+      })
 
     })
-  }//usersHtml
+  }
 
   function attachListners() {
     $('#users').one('click', function(event) {
@@ -41,14 +41,15 @@ $(function() {
       })
 
     })
-  }//attachListners
+  }
+
 Handlebars.registerHelper("formatedTime", function() {
   return new Date(this.time_and_date)
-})//helper
+})
 
 
 const chatConsole = $('#chat-console')
 chatConsole.draggable({ containment: "body", scroll: false });
+//chatConsole.css({bottom: '3%', right: '3%', position: 'absolute'})
 
-
-})//document ready
+})
