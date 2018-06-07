@@ -28,8 +28,12 @@ $(function() {
 
 var deleteRabbiListner = jquery => {
   jquery.on('click', event => {
-    var rabbiId = event.target.dataset.rabbiId
-    $.ajax({
+    const rabbiId = event.target.dataset.rabbiId
+    const rabbi = event.target.parentElement.firstElementChild.innerText
+    const isDestroyable = confirm(`Are you sure you want to delete ${rabbi} and all appointments associated with it?`)
+
+    if (isDestroyable) {
+      $.ajax({
       method: 'DELETE',
       url: '/rabbis/' + rabbiId,
     })
@@ -37,7 +41,7 @@ var deleteRabbiListner = jquery => {
       if (response.status === 201) {
         $(`button[data-rabbi-id='${response.rabbi_id}']`).parents('.rabbi').empty()
       }
-    })
+    })}
 
     })
   }
