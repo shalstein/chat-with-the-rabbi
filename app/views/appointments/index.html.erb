@@ -11,7 +11,7 @@
     <div class="appointment mx-auto my-3 w-50 bg-light p-3 rounded">
 
 
-      <p>Date: <%=appointment.time_and_date.strftime("%A, %B %y")%></p>
+      <p>Date: <%=appointment.time_and_date.strftime("%A, %B %d, %Y")%></p>
       <p>Time: <%=appointment.time_and_date.strftime("%I:%M %p")%></p>
       <p>Service: <%=appointment.service.name%></p>
       <%= link_to "View Summary", user_appointment_path(appointment.user, appointment), class: 'btn btn-success'%>
