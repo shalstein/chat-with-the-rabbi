@@ -1,3 +1,8 @@
+<% content_for :cable do %>
+  <%= javascript_include_tag "cable" %>
+<% end %>
+
+
 <div class="container">
 
   <h1> Welcome <%= @user.name %>!</h1>
@@ -51,3 +56,5 @@
  </ul>
 
 </script>
+
+

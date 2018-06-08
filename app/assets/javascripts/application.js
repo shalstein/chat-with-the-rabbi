@@ -15,5 +15,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require jquery-ui/widgets/draggable
-
+//= stub cable
 //= require_tree .

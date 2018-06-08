@@ -17,8 +17,6 @@ class Appointment < ApplicationRecord
 
   def rabbi_attributes=(attributes)
     self.rabbi = Rabbi.find_or_create_by(attributes)
-
-
   end
 
 
