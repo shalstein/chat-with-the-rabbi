@@ -2,11 +2,11 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-
+    
     @user = User.find(params[:id])
     authorize! :read, @user
     @appointments = @user.appointments
-    @chat_messages = ChatMessage.recent_messages
+    @chat_messages = ChatMessage.recent_messages(current_user) 
 
     respond_to do |response|
       response.html {render :show}

@@ -50,6 +50,5 @@ Handlebars.registerHelper("formatedTime", function() {
 
 const chatConsole = $('#chat-console')
 chatConsole.draggable({ containment: "body", scroll: false });
-//chatConsole.css({bottom: '3%', right: '3%', position: 'absolute'})
 
 })
