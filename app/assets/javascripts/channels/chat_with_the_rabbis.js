@@ -27,9 +27,13 @@ App.chat_with_the_rabbis = App.cable.subscriptions.create("ChatWithTheRabbisChan
 
     var chatInput = $('#chat-input').val()
     if (chatInput.replace(/\s/g, '').length > 0) {
-    this.perform('sendMessage', {content: chatInput, })
+    this.perform('sendMessage', {content: chatInput, for: $('#chat-dropdown').val() })
   }
     $('#chat-input').val('')
 
   }
+
 });
+
+
+

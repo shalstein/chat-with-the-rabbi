@@ -20,9 +20,7 @@ class ChatMessage < ApplicationRecord
       LIMIT 10
       )
       AS recent_chats 
-      ON users.id = recent_chats.user_id" ).distinct.pluck(:name, :id)
-  end
-
-
-
+      ON users.id = recent_chats.user_id" ).distinct
+    end
 end
+

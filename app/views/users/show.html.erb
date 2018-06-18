@@ -38,9 +38,8 @@
     <%=render partial: "message", collection: @chat_messages %>
 
     </div>
+    <%= select_tag(:users, options_from_collection_for_select(@recent_users, "id", "name"), prompt: 'Select a User', id: 'chat-dropdown' ) if current_user.admin? %>
     <%= text_field_tag 'chat-input' %>
-    <%= select_tag(:city_id, options_for_select(@recent_users)) %>
-
     <%= submit_tag 'Send', id: 'chat-submit' %>
 
   </div>
