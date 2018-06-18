@@ -5,6 +5,7 @@ class User < ApplicationRecord
 
   has_many :rabbis, through: :appointments
   has_many :appointments
+  has_many :ChatMessages
   enum role: [:normal, :admin]
 
   validates :name, presence: true

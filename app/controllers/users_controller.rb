@@ -6,7 +6,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize! :read, @user
     @appointments = @user.appointments
-    @chat_messages = ChatMessage.recent_messages(current_user) 
+    @chat_messages = ChatMessage.recent_messages(current_user)
+    @recent_users = ChatMessage.recent_users
 
     respond_to do |response|
       response.html {render :show}
