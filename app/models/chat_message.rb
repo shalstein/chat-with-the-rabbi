@@ -1,13 +1,13 @@
 class ChatMessage < ApplicationRecord
   belongs_to :user
-  #scope :recent_messages, -> {ChatMessage.all.order(created_at: :asc).last(10)  }
+  belongs_to :recipient, class_name: "User", optional: true
 
   def self.recent_messages(current_user)
 
     if current_user.admin?
       ChatMessage.order(created_at: :desc).limit(10).reverse
     else
-      ChatMessage.where(user_id: current_user.id).order(created_at: :desc).limit(10).reverse
+      ChatMessage.where(user_id: current_user.id).or(ChatMessage.where(recipient_id: current_user.id)).order(created_at: :desc).limit(10).reverse
     end
 
   end

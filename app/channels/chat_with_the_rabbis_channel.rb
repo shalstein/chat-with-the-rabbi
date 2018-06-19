@@ -20,3 +20,5 @@ class ChatWithTheRabbisChannel < ApplicationCable::Channel
   end
 
 end
+
+

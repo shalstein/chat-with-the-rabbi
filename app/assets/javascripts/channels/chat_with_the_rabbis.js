@@ -21,21 +21,13 @@ App.chat_with_the_rabbis = App.cable.subscriptions.create("ChatWithTheRabbisChan
 
   appendToChatConsole: function(message) {
       $('#chat-messages').append(`<span id=${message.from.id}>${message.from.name}: ${message.content}</span><br/>`)
-
-      //TODO put this in seperate admin controller
-      
-      if (message){
-        $('#chat-dropdown').append($('<option>', {
-        value: message.from.id,
-        text: message.from.name
-      }))}
   },
 
   sendChat: function() {
 
     var chatInput = $('#chat-input').val()
     if (chatInput.replace(/\s/g, '').length > 0) {
-    this.perform('sendMessage', {content: chatInput, for: $('#chat-dropdown').val() })
+    this.perform('sendMessage', {content: chatInput })
   }
     $('#chat-input').val('')
 

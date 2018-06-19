@@ -12,7 +12,7 @@ App.admin_chat = App.cable.subscriptions.create("AdminChatChannel", {
   },
 
   disconnected: function() {
-    // Called when the subscription has been terminated by the server
+
   },
 
   received: function(data) {
@@ -23,7 +23,7 @@ App.admin_chat = App.cable.subscriptions.create("AdminChatChannel", {
       $('#chat-messages').append(`<span id=${message.from.id}>${message.from.name}: ${message.content}</span><br/>`)   
       const newUser =  !$('#chat-dropdown').children().is((i , option) => option.value === message.from.id.toString())
       
-      if (newUser) {
+      if (newUser){
           $('#chat-dropdown').append($('<option>', {
           value: message.from.id,
           text: message.from.name
