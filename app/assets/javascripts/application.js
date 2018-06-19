@@ -16,4 +16,6 @@
 //= require bootstrap-sprockets
 //= require jquery-ui/widgets/draggable
 //= stub cable
+//= stub admin_cable
 //= require_tree .
+

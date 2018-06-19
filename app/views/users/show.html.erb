@@ -1,7 +1,6 @@
 <% content_for :cable do %>
-  <%= javascript_include_tag "cable" %>
+  <%= current_user.admin? ? (javascript_include_tag 'admin_cable') : (javascript_include_tag 'cable') %>
 <% end %>
-
 
 <div class="container">
 

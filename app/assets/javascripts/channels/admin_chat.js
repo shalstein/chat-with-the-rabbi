@@ -1,9 +1,9 @@
-App.chat_with_the_rabbis = App.cable.subscriptions.create("ChatWithTheRabbisChannel", {
+App.admin_chat = App.cable.subscriptions.create("AdminChatChannel", {
   connected: function() {
     $('#chat-submit').click(this.sendChat.bind(this))
     $('#chat-input').on('keydown', (event) => {
       if (event.keyCode === 13) {
-          App.chat_with_the_rabbis.sendChat()
+          App.admin_chat.sendChat()
       }
     })
 
@@ -20,15 +20,17 @@ App.chat_with_the_rabbis = App.cable.subscriptions.create("ChatWithTheRabbisChan
   },
 
   appendToChatConsole: function(message) {
-      $('#chat-messages').append(`<span id=${message.from.id}>${message.from.name}: ${message.content}</span><br/>`)
-
-      //TODO put this in seperate admin controller
+      $('#chat-messages').append(`<span id=${message.from.id}>${message.from.name}: ${message.content}</span><br/>`)   
+      const newUser =  !$('#chat-dropdown').children().is((i , option) => option.value === message.from.id.toString())
       
-      if (message){
-        $('#chat-dropdown').append($('<option>', {
-        value: message.from.id,
-        text: message.from.name
-      }))}
+      if (newUser) {
+          $('#chat-dropdown').append($('<option>', {
+          value: message.from.id,
+          text: message.from.name
+        }))
+      }   
+
+
   },
 
   sendChat: function() {
@@ -42,6 +44,4 @@ App.chat_with_the_rabbis = App.cable.subscriptions.create("ChatWithTheRabbisChan
   }
 
 });
-
-
 
