@@ -15,9 +15,6 @@
     background-color: #ffd504;
     display: inline-block;
     padding: 10px;
-
- 
- 
   }
  
   #chat-console-header {
@@ -32,5 +29,9 @@
   right: 1em; 
   bottom: 1em;   
   }
- 
+
+  #chat-dropdown {
+    display: block;
+    margin-bottom: 0.6em;
+  }
  

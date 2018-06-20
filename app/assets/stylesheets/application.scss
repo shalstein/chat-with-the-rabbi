@@ -26,4 +26,16 @@
  }
 
 
- 
+ .field_with_errors {
+  padding: 2px;
+  background-color: red;
+}
+
+
+#error_explanation {
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}

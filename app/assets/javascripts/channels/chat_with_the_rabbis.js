@@ -24,9 +24,8 @@ App.chat_with_the_rabbis = App.cable.subscriptions.create("ChatWithTheRabbisChan
   },
 
   sendChat: function() {
-
     var chatInput = $('#chat-input').val()
-    if (chatInput.replace(/\s/g, '').length > 0) {
+    if (chatInput.replace(/\s/g, '').length > 0 && recipentId) {
     this.perform('sendMessage', {content: chatInput })
   }
     $('#chat-input').val('')

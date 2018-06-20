@@ -34,12 +34,23 @@ App.admin_chat = App.cable.subscriptions.create("AdminChatChannel", {
   },
 
   sendChat: function() {
-
+    const chatDropdown = $('#chat-dropdown')
+    const recipentId = chatDropdown.val()
     var chatInput = $('#chat-input').val()
-    if (chatInput.replace(/\s/g, '').length > 0) {
-    this.perform('sendMessage', {content: chatInput, for: $('#chat-dropdown').val() })
-  }
-    $('#chat-input').val('')
+    if (chatInput.replace(/\s/g, '').length > 0 ) {
+      if(recipentId){
+        $('#error_explanation').remove()
+        $('.field_with_errors > #chat-dropdown').unwrap()
+
+        this.perform('sendMessage', {content: chatInput, for: $('#chat-dropdown').val() })
+        $('#chat-input').val('')
+      }
+      else {
+        chatDropdown.before("<div id='error_explanation'> Recipent Must Be Selected </div>")
+        chatDropdown.wrap("<div class='field_with_errors'></di>")
+      }
+
+    }
 
   }
 
