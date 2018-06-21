@@ -21,6 +21,8 @@ App.chat_with_the_rabbis = App.cable.subscriptions.create("ChatWithTheRabbisChan
 
   appendToChatConsole: function(message) {
       $('#chat-messages').append(`<span id=${message.from.id}>${message.from.name}: ${message.content}</span><br/>`)
+      const chatMessages = $('#chat-messages')
+      chatMessages.scrollTop(chatMessages[0].scrollHeight)  
   },
 
   sendChat: function() {

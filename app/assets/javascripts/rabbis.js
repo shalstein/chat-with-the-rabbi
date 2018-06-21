@@ -15,9 +15,7 @@ $(function() {
       contentType: "application/json"
     })
     .done(function(json) {
-      const { rabbi, isAdmin } = json; //#uglifier does not like this syntax
-      //const rabbi = json.rabbi
-      //const isAdmin =json.isAdmin
+      const { rabbi, isAdmin } = json
       var rabbiObject = new Rabbi(rabbi.id, rabbi.first_name, rabbi.last_name, rabbi.charisma_level )
       $("ol").append(rabbiObject.html(isAdmin))
       $('form').trigger('reset')

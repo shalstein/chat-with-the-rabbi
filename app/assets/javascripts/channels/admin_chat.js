@@ -20,7 +20,9 @@ App.admin_chat = App.cable.subscriptions.create("AdminChatChannel", {
   },
 
   appendToChatConsole: function(message) {
-      $('#chat-messages').append(`<span id=${message.from.id}>${message.from.name}: ${message.content}</span><br/>`)   
+      $('#chat-messages').append(`<span id=${message.from.id}>${message.from.name}: ${message.content}</span><br/>`)
+      const chatMessages = $('#chat-messages')
+      chatMessages.scrollTop(chatMessages[0].scrollHeight)  
       const newUser =  !$('#chat-dropdown').children().is((i , option) => option.value === message.from.id.toString())
       
       if (newUser){
@@ -55,4 +57,6 @@ App.admin_chat = App.cable.subscriptions.create("AdminChatChannel", {
   }
 
 });
+
+
 
