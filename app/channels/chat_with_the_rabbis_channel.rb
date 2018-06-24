@@ -13,11 +13,37 @@ class ChatWithTheRabbisChannel < ApplicationCable::Channel
   end
 
 
+  # def sendMessage(message)    
+  #   CreateChatMessageJob.perform_later(content: message['content'], user: current_user)
+  #   ActionCable.server.broadcast('chatsWithTheRabbis', content: message['content'],from: {id: current_user.id, name: current_user.name})
+  #   ChatWithTheRabbisChannel.broadcast_to(current_user, content: message['content'], from: {id: current_user.id, name: current_user.name} )
+  # end
+
+
+
+
+
   def sendMessage(message)    
     CreateChatMessageJob.perform_later(content: message['content'], user: current_user)
+
+    if current_user.admin?
+      ChatWithTheRabbisChannel.broadcast_to(User.find(message['for']), content: message['content'], from: {id: current_user.id, name: current_user.name} )
+    else
+      ChatWithTheRabbisChannel.broadcast_to(current_user, content: message['content'], from: {id: current_user.id, name: current_user.name} )
+    end
+
     ActionCable.server.broadcast('chatsWithTheRabbis', content: message['content'],from: {id: current_user.id, name: current_user.name})
-    ChatWithTheRabbisChannel.broadcast_to(current_user, content: message['content'], from: {id: current_user.id, name: current_user.name} )
   end
+
+
+  
+
+
+
+
+
+
+  
 
 end
 

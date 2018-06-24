@@ -26,11 +26,32 @@ App.chat_with_the_rabbis = App.cable.subscriptions.create("ChatWithTheRabbisChan
   },
 
   sendChat: function() {
-    var chatInput = $('#chat-input').val()
-    if (chatInput.replace(/\s/g, '').length > 0 && recipentId) {
-    this.perform('sendMessage', {content: chatInput })
-  }
-    $('#chat-input').val('')
+    const chatDropdown = $('#chat-dropdown')
+    const recipentId = chatDropdown.val()
+    const chatInputElement = $('#chat-input')
+    const chatInputValue = chatInputElement.val()
+    const isAdmin = chatDropdown.length > 0
+    
+    if (chatInputValue.replace(/\s/g, '').length > 0) {
+      if(isAdmin){
+        if (recipentId){
+          $('#error_explanation').remove()
+          $('.field_with_errors > #chat-dropdown').unwrap()
+          this.perform('sendMessage', {content: chatInputValue, for: chatDropdown.val() })
+          chatInputElement.val('')
+        }
+        else {
+          chatDropdown.before("<div id='error_explanation'> Recipent Must Be Selected </div>")
+          chatDropdown.wrap("<div class='field_with_errors'></di>")
+          }
+        }
+      else {
+        this.perform('sendMessage', {content: chatInputValue })
+        chatInputElement.val('')
+      }
+    }
+
+    
 
   }
 
